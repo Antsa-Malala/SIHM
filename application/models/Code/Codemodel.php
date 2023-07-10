@@ -44,6 +44,13 @@
             }
             return $result;
         }
+
+        public function insert_code($code,$somme)
+        {
+            $sql="insert into code values (null,10,%s,%s)";
+            $sql=sprintf($sql,$this->db->escape($code),$this->db->escape($somme));
+            $this->db->query($sql);
+        }
     }
     
     

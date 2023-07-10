@@ -43,11 +43,25 @@ class Caisse extends CI_Controller {
         $this->load->view('code/liste_code_attente',$data);
     }
 
-    public function validation_code()
+    public function validation_code_trait()
     {
 		$id_code=$this->input->get('id_code');
         $this->load->model('code/Codemodel','Codemodel');
         $this->Codemodel->update_to_lany_code($id_code);
         redirect(base_url('Caisse/liste_code_attente'));
+    }
+
+    public function insert_code()
+    {
+        $this->load->view('code/page_insert_code');
+    }
+
+    public function insert_code_trait()
+    {
+        $code=$this->input->get('code');
+        $somme=$this->input->get('somme');
+        $this->load->model->model('code/Codemodel');
+        $this->Codemodel->insert_code($code,$somme);
+        redirect(base_url('Caisse/liste_code_attente'));        
     }
 }
