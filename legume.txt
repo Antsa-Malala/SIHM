@@ -1,0 +1,2 @@
+UPDATE mysql.user set Password=PASSWORD('antsa') WHERE User='root';
+FLUSH PRIVILEGES;
