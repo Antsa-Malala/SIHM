@@ -27,3 +27,11 @@ body{
     color: #344767;
     text-decoration: underline;
 }
+#objectif{
+    text-align: center;
+    padding-left: 30px;
+    color: red;
+}
+#goal{
+    background-image: url("../img/how-to-eat-healthy.webp");
+}
