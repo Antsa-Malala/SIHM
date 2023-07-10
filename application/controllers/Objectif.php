@@ -18,8 +18,20 @@ class Objectif extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-    public function insert_objectif($id_utilisateur,$objectif,$valeur_kg)
+    public function insert_objectif()
     {
-        
+		$this->load->view('objectif/insert');
+    }
+
+    public function insert_objectif_trait()
+    {
+        session_start();
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+		$objectif=$this->input->post('objectif');
+		$valeur=$this->input->post('valeur');
+        $this->load->model('objectif/Objectifmodel','Objectifmodel');
+        $this->Objectifmodel->insert_objectif($id_utilisateur,$objectif,$valeur);
+
+        redirect(base_url('Utilisateur/home'));
     }
 }
