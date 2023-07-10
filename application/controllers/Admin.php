@@ -27,7 +27,11 @@ class Admin extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
+<<<<<<< Updated upstream
 		$this->load->model('admin/Adminmodel' , 'Adminmodel');
+=======
+		$this->load->model('admin/Adminmodel','Adminmodel');
+>>>>>>> Stashed changes
         $verification=$this->Adminmodel->login_admin($mail,$mdp);
 
 		if($verification==null)
@@ -48,8 +52,13 @@ class Admin extends CI_Controller {
 
     public function get_all_utilisateur()
     {
+<<<<<<< Updated upstream
         $this->load->model('utilisateur/Utilisateurmodel');
         $all_utilisateur=$this->Utilisateurmodel->get_all_utilisateur();
+=======
+        $this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
+        $data['all_utilisateur']=$this->Utilisateurmodel->get_all_utilisateur();
+>>>>>>> Stashed changes
         $this->load->view('utilisateur/liste_all',$data);
     }
 }
