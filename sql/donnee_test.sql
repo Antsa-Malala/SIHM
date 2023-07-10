@@ -69,7 +69,7 @@ VALUES
   ('Musculation');
 
 --rechargement
-  INSERT INTO rechargement (id_utilisateur, id_code, date_rechargement)
+INSERT INTO rechargement (id_utilisateur, id_code, date_rechargement)
 VALUES
   (1, 1, '2023-01-01'),
   (2, 2, '2023-01-05'),
