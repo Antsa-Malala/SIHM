@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
     public function get_all_utilisateur()
     {
         $this->load->model('Utilisateurmodel');
-        $all_utilisateur=$this->Utilisateurmodel->get_all_utilisateur();
+        $data['all_utilisateur']=$this->Utilisateurmodel->get_all_utilisateur();
         $this->load->view('utilisateur/liste_all',$data);
     }
 }
