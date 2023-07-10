@@ -3,10 +3,10 @@
     
     class Caisse_model extends CI_Model{
 
-        public function login_admin($mail,$mdp)
+        public function verification_caisse($id,$somme)
         {
-            $sql="select * from admin where mail=%s and mdp=%s";
-            $sql=sprintf($sql,$this->db->escape($mail),$this->db->escape($mdp));
+            $sql="select * from code where code=%s and etat=1";
+            $sql=sprintf($sql,$this->db->escape($code));
             $query=$this->db->query($sql);
 
             $result = null;
