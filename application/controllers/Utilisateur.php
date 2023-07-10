@@ -53,6 +53,8 @@ class Utilisateur extends CI_Controller {
 		}
 		else
 		{
+			session_start();
+            $_SESSION['id_utilisateur']=$verification['id_utilisateur'];
 			redirect(base_url('Utilisateur/home'));
 		}
 	}
@@ -60,5 +62,33 @@ class Utilisateur extends CI_Controller {
 	public function home()
 	{
 		$this->load->view('utilisateur/home');
+	}
+
+	public function modifier()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$data=$this->Utilisateurmodel->get_one_utilisateur($id);
+		$this->load->view('utilisateur/modification',$data);
+	}
+
+	public function modifier_trait()
+	{
+		$nom=$this->input->post('nom');
+		$prenom=$this->input->post('prenom');
+		$date_naissance=$this->input->post('date_naissance');
+		$genre=$this->input->post('genre');
+		$mail=$this->input->post('mail');
+		$mdp=$this->input->post('mdp');
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('Utilisateurmodel');
+		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp,$id);
+		redirect(base_url('Utilisateur/profil'));
+	}
+
+	public function profil()
+	{
+		$this->load->view('utilisateur/profil');
 	}
 }

@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model("Adminmodel");
+		$this->load->model('Adminmodel');
         $verification=$this->Adminmodel->login_admin($mail,$mdp);
 
 		if($verification==null)
@@ -44,4 +44,11 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('admin/home');
 	}
+
+    public function get_all_utilisateur()
+    {
+        $this->load->model('Utilisateurmodel');
+        $all_utilisateur=$this->Utilisateurmodel->get_all_utilisateur();
+        $this->load->view('utilisateur/liste_all',$data);
+    }
 }
