@@ -60,6 +60,22 @@
             }
             return $result;
         }
+
+        public function get_objectif_now_utilisateur($id)
+        {
+            $sql="select * from objectif where id_utilisateur=%s and date_fin=null";
+            $sql=sprintf($sql,$this->db->ecape($id));
+            $this->db->query($sql);
+
+            $result=null;
+
+            foreach($query->result_array() as $row)
+            {
+                $result=$row;
+            }
+
+            return $result;
+        }
     }
     
     

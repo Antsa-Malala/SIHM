@@ -101,4 +101,13 @@ class Utilisateur extends CI_Controller {
 		session_destroy();
 		redirect(base_url('utilisateur/loginutilisateur'));
 	}
+
+	public function get_objectif()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
+		$data['objectif_now']=$this->Utilisateurmodel->get_objectif_now_utilisateur($id);
+		$this->load->view('utilisateur/objectif');
+	}
 }
