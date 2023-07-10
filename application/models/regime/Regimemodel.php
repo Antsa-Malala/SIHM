@@ -35,4 +35,5 @@ class Regimemodel extends CI_Controller {
 		$sql=sprintf($sql,$this->db->escape($poids),$this->db->escape($azo_very));
 		$query=$this->db->query($sql);
     }
+	
 }

@@ -39,4 +39,25 @@ class Regime extends CI_Controller {
 
         redirect(base_url('Regime/select_all'));
     }
+
+    public function get_combinaison($poids)
+    {
+        $tableau = array(1,2,4,8);
+        $membres_volou=$tableau[0];
+        $result=array();
+        array_push($result,$membres_volou);
+        for($i=0;$i<count($tableau);$i++)
+        {
+            for($a=$i+1;$a<count($tableau);$a++)
+            {
+                if($membres_volou+$tableau[$a]==$poids)
+                {
+                    array_push($result,$tableau[$a]);
+                    return $result;
+                }
+            }
+            $membres_volou=$membres_volou+$tableau[$i+1];
+            array_push($result,$tableau[$i+1]);
+        }
+    }
 }
