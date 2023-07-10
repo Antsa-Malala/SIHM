@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Loginutilisateur extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,30 @@ class Loginutilisateur extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function login_page()
+	 
+	public function login()
 	{
-		$this->load->view('utilisateur/loginutilisateur');	
-	}		
+		$this->load->view('admin/loginadmin');	
+	}
+	public function verif_login()
+	{
+		$mail=$this->input->post('mail');
+		$mdp=$this->input->post('mdp');
+		$this->load->model("Adminmodel");
+        $verification=$this->Adminmodel->login_admin($mail,$mdp);
+
+		if($verification==null)
+		{
+			redirect(base_url('Utilisateur/login'));
+		}
+		else
+		{
+			redirect(base_url('Admin/home'));
+		}
+	}
+
+	public function home()
+	{
+		$this->load->view('admin/home');
+	}
 }
