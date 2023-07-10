@@ -17,6 +17,7 @@
             }
             
             return $result;
+            
         }
 
         public function update_to_attente_code($code)
