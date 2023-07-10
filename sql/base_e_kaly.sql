@@ -37,8 +37,7 @@ create table objectif(
     objectif int,
     date_debut date,
     date_fin date,
-    intervalle_debut int,
-    intervalle_fin int,
+    valeur int,
     foreign key(id_utilisateur) references utilisateur(id_utilisateur)
 );
 
@@ -47,7 +46,7 @@ create table objectif(
 create table regime(
     id_regime int auto_increment primary key,
     poids double,
-    azo_perdu double
+    azo_perdu int
 );
 create table plat 
 (
@@ -70,7 +69,6 @@ create table activite(
 
 create table rechargement(
     id_utilisateur int,
-    somme double,
     id_code int,
     date_rechargement date,
     foreign key(id_utilisateur) references utilisateur(id_utilisateur),
