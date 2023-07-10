@@ -22,6 +22,7 @@ class Caisse extends CI_Controller {
     {
         $this->load->view('code/pagerechargement',$data);
     }
+
     public function rechargement_code()
     {
 		$code=$this->input->post('code');
@@ -33,5 +34,20 @@ class Caisse extends CI_Controller {
         }
         $this->Codemodel->update_to_attente_code($code);
         redirect(base_url('Utilisateur/profil'));
+    }
+
+    public function liste_code_attente()
+    {
+        $this->load->model('code/Codemodel','Codemodel');
+        $data['all_code']=$this->Codemodel->get_liste_code_attente();
+        $this->load->view('code/liste_code_attente',$data);
+    }
+
+    public function validation_code()
+    {
+		$id_code=$this->input->get('id_code');
+        $this->load->model('code/Codemodel','Codemodel');
+        $this->Codemodel->update_to_lany_code($id_code);
+        redirect(base_url('Caisse/liste_code_attente'));
     }
 }

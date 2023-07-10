@@ -27,11 +27,22 @@
             $this->db->query($sql);
         }
 
-        public function update_to_lany_code($code)
+        public function update_to_lany_code($id_code)
         {
-            $sql="update code set etat=0 where code=%s";
-            $sql=sprintf($sql,$this->db->escape($code));
+            $sql="update code set etat=0 where id_code=%s";
+            $sql=sprintf($sql,$this->db->escape($id_code));
             $this->db->query($sql);
+        }
+
+        public function get_liste_code_attente()
+        {
+            $query = $this->db->query("select * from code where etat=5");
+            $result = array();
+            foreach($query->result_array() as $row)
+            {
+                array_push($result,$row);
+            }
+            return $result;
         }
     }
     
