@@ -9,3 +9,21 @@ body{
     padding: 40px;
     border-radius: 30px;
 }
+#log_in{
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 30px;
+}
+#log_admin
+{
+    text-align: center;
+    cursor: pointer;
+}
+#admin{
+    color: cornflowerblue;
+}
+#sign{
+    color: #344767;
+    text-decoration: underline;
+}
