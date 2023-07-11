@@ -1,6 +1,6 @@
 <?php
 
-	class Regime    _vendu extends CI_Model{       
+	class Regime_vendu extends CI_Model{       
         public $id_plat;
         public $nom_plat;   
         public $disponibilite; 
@@ -33,10 +33,6 @@
 				$results[] = $plat;
 			}
 			return $results;
-		}
-
-        public function delete_activite( $id ){
-            $this->db->delete('activite', array('id_activite' => $id));
 		}
 
         

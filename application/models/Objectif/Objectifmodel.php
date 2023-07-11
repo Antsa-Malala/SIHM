@@ -9,6 +9,13 @@
             $sql=sprintf($sql,$this->db->escape($id_utilisateur),$this->db->escape($objectif),$this->db->escape($valeur_kg));
             $query=$this->db->query($sql);
         }
+        
+        public function get_lose_or_gain($int){
+            if($int == 0)
+                return "Perdre";
+            else 
+                return "Gagner";
+        }
     }
     
 ?>

@@ -20,7 +20,7 @@ class Objectif extends CI_Controller {
 	 */
     public function insert_objectif()
     {
-		$this->load->view('objectif/insert');
+		$this->load->view('objectif/modifier_objectif');
     }
 
     public function insert_objectif_trait()
