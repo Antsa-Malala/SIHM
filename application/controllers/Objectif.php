@@ -22,7 +22,7 @@ class Objectif extends CI_Controller {
     public function insert_objectif()
     {
 		$data['title'] = "Objectif";
-		$data['body'] = 'objectif/modifier_objectif';
+		$data['body'] = "objectif/modifier_objectif";
 		$this->load->view('template/index' , $data);
     }
 	public function update_objectif()

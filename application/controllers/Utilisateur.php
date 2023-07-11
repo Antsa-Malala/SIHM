@@ -41,7 +41,7 @@ class Utilisateur extends CI_Controller {
 			redirect(site_url('Utilisateur/login'));
 		}
 		else{
-			redirect(site_url('Utilisateur/home'));
+			redirect(base_url('Utilisateur/home'));
 		}
 	}
 

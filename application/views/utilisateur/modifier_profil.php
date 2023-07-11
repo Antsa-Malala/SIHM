@@ -16,19 +16,19 @@
             </div>
                 <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column"id="sign_up">
                   <h3 class="text-center">Modifier votre profil</h3>
-                  <form role="form" id="contact-form" method="post" autocomplete="off">
+                  <form role="form" id="contact-form" method="post" autocomplete="off" action=<?php echo site_url("Utilisateur/modifier_trait");?>>
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="input-group input-group-static mb-4">
                             <label>Nom</label>
-                            <input class="form-control" aria-label="First Name..." type="text" value=<?php echo $detail['nom'];?> >
+                            <input class="form-control" aria-label="First Name..." type="text" name="nom" value=<?php echo $detail['nom'];?> >
                           </div>
                         </div>
                         <div class="col-md-6 ps-2">
                           <div class="input-group input-group-static">
                             <label>Prenom</label>
-                            <input type="text" class="form-control" placeholder="" aria-label="Last Name..." value=<?php echo $detail['prenom'];?>>
+                            <input type="text" class="form-control" placeholder="" aria-label="Last Name..." name="prenom" value=<?php echo $detail['prenom'];?>>
                           </div>
                         </div>
                       </div>
@@ -36,26 +36,26 @@
                         <div class="col-md-6">
                           <div class="input-group input-group-static mb-4">
                             <label>Taille</label>
-                            <input class="form-control" type="number" value=<?php echo $taille['taille'];?>>
+                            <input class="form-control" type="number" name="taille" value=<?php echo $taille['taille'];?>>
                           </div>
                         </div>
                         <div class="col-md-6 ps-2">
                           <div class="input-group input-group-static mb-4">
                             <label>Poids</label>
-                            <input class="form-control" type="number" value=<?php echo $poids['poids']; ?>>
+                            <input class="form-control" type="number" name="poids" value=<?php echo $poids['poids']; ?>>
                           </div>
                         </div>
                       </div>
                       <div class="mb-4">
                         <div class="input-group input-group-static">
                           <label>Email</label>
-                          <input type="email" class="form-control" value=<?php echo $detail['mail']; ?>>
+                          <input type="email" class="form-control" name="mail" value=<?php echo $detail['mail']; ?>>
                         </div>
                       </div>
                       <div class="mb-4">
                         <div class="input-group input-group-static">
                           <label>Mot de passe</label>
-                          <input type="password" class="form-control">
+                          <input type="password" class="form-control" name="mdp">
                         </div>
                       </div>
                       <div class="row">
