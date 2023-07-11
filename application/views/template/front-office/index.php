@@ -14,6 +14,7 @@
   <!-- Nucleo Icons -->
   <link href=<?php echo base_url("assets/css/nucleo-icons.css");?> rel="stylesheet" />
   <link href=<?php echo base_url("assets/css/nucleo-svg.css");?> rel="stylesheet" />
+  <link href=<?php echo base_url("assets/css/style.css");?> rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
@@ -25,13 +26,13 @@
 <body>
 	<div class="container-fluid" style="--bs-gutter-x: 0em; ">
 		<?php 
-			$this->load->view('template/Header');
+			$this->load->view('template/front-office/Header');
 			$this->load->view( $body );
 		?>
 	</div>
 
 	<div class="footer">
-		<?php $this->load->view('template/Footer'); ?>
+		<?php $this->load->view('template/front-office/Footer'); ?>
 	</div>
 
   <!--   Core JS Files   -->

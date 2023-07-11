@@ -24,7 +24,7 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
-		redirect(base_url('Utilisateur/login'));
+		redirect(site_url('Objectif/insert_objectif'));
 	}
 	 
 	public function login()
@@ -57,7 +57,7 @@ class Utilisateur extends CI_Controller {
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
 		$data['objectif'] = $this->get_objectif();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
-		$this->load->view('template/index' , $data);
+		$this->load->view('template/front-office/index' , $data);
 	}
 
 	public function modifier()
@@ -68,7 +68,7 @@ class Utilisateur extends CI_Controller {
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
-		$this->load->view('template/index',$data);
+		$this->load->view('template/front-office/index',$data);
 	}
 
 	public function modifier_trait()
@@ -94,7 +94,7 @@ class Utilisateur extends CI_Controller {
 	public function logout()
 	{
 		session_destroy();
-		redirect(base_url('utilisateur/loginutilisateur'));
+		redirect(site_url('utilisateur/loginutilisateur'));
 	}
 
 	public function get_objectif()
