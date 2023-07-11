@@ -1,7 +1,7 @@
 <!-- Navbar Transparent -->
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
-      <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+      <a class="navbar-brand  text-white " href=<?php echo site_url("Utilisateur/home");?> rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
        E-Kaly
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,10 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                  Mon profil
                 </h6>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("Utilisateur/home");?> class="dropdown-item border-radius-md">
                   <span>Voir mon profil</span>
                 </a>
-                <a href=<?php echo base_url("pages/contact-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("Utilisateur/modifier");?> class="dropdown-item border-radius-md">
                   <span>Modifier mon profil</span>
                 </a>
               </div>
@@ -36,10 +36,10 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                   Mon profil
                 </h6>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("Utilisateur/home");?> class="dropdown-item border-radius-md">
                   <span>Voir mon profil</span>
                 </a>
-                <a href=<?php echo base_url("pages/contact-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php site_url("Utilisateur/modifier");?> class="dropdown-item border-radius-md">
                   <span>Modifier mon profil</span>
                 </a>
               </div>
@@ -57,7 +57,7 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                 Régimes
                 </h6>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Voir les propositions de menus</span>
                 </a>
               </div>
@@ -65,7 +65,7 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                 Régimes
                 </h6>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Voir les propositions de menus</span>
                 </a>
               </div>
@@ -83,10 +83,10 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                Caisse
                 </h6>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Etat de caisse</span>
                 </a>
-                <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Recharger ma caisse</span>
                 </a>
               </div>
@@ -94,10 +94,10 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                   Caisse
                    </h6>
-                   <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                   <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                      <span>Etat de caisse</span>
                    </a>
-                   <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                   <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                      <span>Recharger ma caisse</span>
                    </a>
               </div>
