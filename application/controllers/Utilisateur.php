@@ -33,7 +33,7 @@ class Utilisateur extends CI_Controller {
 		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
-		redirect(base_url('Utilisateur/login'));
+		// redirect(base_url('Utilisateur/login'));
 	}
 	 
 	public function login()

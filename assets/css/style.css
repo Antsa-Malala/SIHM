@@ -1,0 +1,11 @@
+body{
+    background-image: url("../img/plant-based-food-mc-220323-02-273c7b.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sign_up
+{
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 30px;
+}

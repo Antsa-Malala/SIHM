@@ -22,10 +22,7 @@ class Welcome extends CI_Controller {
 	{
 		// $this->load->view('welcome_message');
 		// $this->load->view('template/basic_elements');	
-<<<<<<< Updated upstream
-		$this->load->view('Login_utilisateur');	
-=======
-		$this->load->view('Utilisateur/Login_utilisateur');	
->>>>>>> Stashed changes
+
+		$this->load->view('utilisateur/inscription');	
 	}		
 }
