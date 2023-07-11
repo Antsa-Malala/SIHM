@@ -119,7 +119,7 @@ class Utilisateur extends CI_Controller {
 	}
 
 	public function get_objectif_now()
-	{
+	{	
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
@@ -148,7 +148,7 @@ class Utilisateur extends CI_Controller {
 
 	public function get_etat_depense()
     {
-        $result;
+        $result = null;
         $id_utilisateur=$_SESSION['id_utilisateur'];
 
         $this->load->model('regime/Regimemodel','Regimemodel');
@@ -158,13 +158,13 @@ class Utilisateur extends CI_Controller {
         for($i=0;$i<count($regimes_achetee);$i++)
         {
 			$haha=$this->Regimemodel->get_prix_total_one_regime($regimes_achetee[$i]['id_regime']);
-            $prix_total_achetee=$prix_total_achetee+$haha['prix_total'];
+            $prix_total_achetee=$prix_total_achetee+$haha;
         }
         return $prix_total_achetee;
     }
 	public function get_etat_recharge()
 	{
-		$result;
+		$result = null;
         $id_utilisateur=$_SESSION['id_utilisateur'];
 		$this->load->model('code/Codemodel','Codemodel');
 		$result=$this->Codemodel->get_prix_rechargement_par_utilisateur($id_utilisateur);

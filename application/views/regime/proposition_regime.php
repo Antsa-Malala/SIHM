@@ -19,76 +19,28 @@
     <section class="py-7">
       <div class="container">
         <div class="row align-items-center">
+          <?php foreach( $list_regime as $row ){?>
             <div class="col-md-4 mb-4">
               <div class="card shadow-lg">
-                <span class="badge rounded-pill bg-light text-dark w-30 mt-n2 mx-auto">Regime 1</span>
+                <span class="badge rounded-pill bg-light text-dark w-30 mt-n2 mx-auto">Regime <?php echo $row['id_regime'];?></span>
                 <div class="card-header text-center pt-4 pb-3">
                   <h1 class="font-weight-bold mt-2">
-                    <small class="text-lg mb-auto">Ar</small>500<small class="text-lg">/1 semaine</small>
+                    <small class="text-lg mb-auto">Ar </small><?php echo $row['prix'];?><small class="text-lg"></small>
                   </h1>
                 </div>
                 <div class="card-body text-lg-start text-center pt-0">
                   <div class="d-flex justify-content-lg-start justify-content-center p-2">
                     <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Gateau</span>
+                    <span class="ps-3"> <?php echo $row['objectif']." ".$row['poids'];?> Kg</span>
                   </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Légumes </span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Salade</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">remove</i>
-                    <span class="ps-3">Musculation </span>
-                  </div>
-                  <a href="javascript:;" class="btn btn-icon bg-gradient-dark d-lg-block mt-3 mb-0">
+                  <a href=<?php echo site_url("Regime/detail_regime/".$row['id_regime']);?> class="btn btn-icon bg-gradient-dark d-lg-block mt-3 mb-0">
                     Acheter
                     <i class="fas fa-arrow-right ms-1"></i>
                   </a>
                 </div>
               </div>
-            </div>     
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-lg">
-                <span class="badge rounded-pill bg-light text-dark w-30 mt-n2 mx-auto">Regime 2</span>
-                <div class="card-header text-center pt-4 pb-3">
-                  <h1 class="font-weight-bold mt-2">
-                    <small class="text-lg mb-auto">Ar</small>5000<small class="text-lg"> /1 semaine</small>
-                  </h1>
-                </div>
-                <div class="card-body text-lg-start text-center pt-0">
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Koba</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Légumes </span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Salade</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">remove</i>
-                    <span class="ps-3">Musculation </span>
-                  </div>
-                  <a href="javascript:;" class="btn btn-icon bg-gradient-dark d-lg-block mt-3 mb-0">
-                    Acheter
-                    <i class="fas fa-arrow-right ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>     
+            </div>  
+          <?php } ?>   
         </div>
       </div>
     </section>
