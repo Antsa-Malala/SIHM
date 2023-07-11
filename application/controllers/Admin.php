@@ -27,12 +27,13 @@ class Admin extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model('Adminmodel');
+		$this->load->model('admin/Adminmodel' , 'Adminmodel');
         $verification=$this->Adminmodel->login_admin($mail,$mdp);
 
 		if($verification==null)
 		{
-			redirect(base_url('Utilisateur/login'));
+
+			redirect(base_url('utilisateur/login'));
 		}
 		else
 		{
@@ -47,8 +48,8 @@ class Admin extends CI_Controller {
 
     public function get_all_utilisateur()
     {
-        $this->load->model('Utilisateurmodel');
-        $data['all_utilisateur']=$this->Utilisateurmodel->get_all_utilisateur();
+        $this->load->model('utilisateur/Utilisateurmodel');
+        $all_utilisateur=$this->Utilisateurmodel->get_all_utilisateur();
         $this->load->view('utilisateur/liste_all',$data);
     }
 }
