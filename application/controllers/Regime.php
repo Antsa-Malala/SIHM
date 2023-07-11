@@ -60,4 +60,16 @@ class Regime extends CI_Controller {
             array_push($result,$tableau[$i+1]);
         }
     }
+
+    public function insert_regime_achetee_trait()
+    {
+		$id_regime=$this->input->post('id_regime');
+        session_start();
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+        $this->load->model('regime/Regimemodel','Regimemodel');
+        $this->Regimemodel->insert_regime_achetee($id_utilisateur,$id_regime);
+        redirect(base_url('Regime/select_all'));
+    }
+
+    public function get
 }

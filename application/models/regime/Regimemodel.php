@@ -36,4 +36,10 @@ class Regimemodel extends CI_Controller {
 		$query=$this->db->query($sql);
     }
 	
+	public function insert_regime_achetee($id_utilisateur,$id_regime)
+	{
+		$sql="insert into regime_achete values (%s,%s,now())";
+		$sql=sprintf($sql,$this->db->escape($id_utilisateur),$this->db->escape($id_regime));
+		$query=$this->db->query($sql);
+	}
 }
