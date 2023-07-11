@@ -75,17 +75,17 @@
               <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="material-icons opacity-6 me-2 text-md"></i>
-                 Caisse
+                 Rechargement
                   <img src=<?php echo base_url("assets/img/down-arrow-white.svg");?> alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
                   <img src=<?php echo base_url("assets/img/down-arrow-dark.svg");?> alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
                 </a>
                 <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
                   <div class="d-none d-lg-block">
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                   Caisse
+                   Rechargement
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
-                      <span>Etat de caisse</span>
+                    <a href=<?php echo base_url("Caisse/liste_code_attente");?> class="dropdown-item border-radius-md">
+                      <span>Acceptation des codes</span>
                     </a>
                     <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
                       <span>Recharger ma caisse</span>

@@ -25,14 +25,20 @@ class Caisse extends CI_Controller {
 
     public function rechargement_code()
     {
+        session_start();
+        $id_utilisateur=$_SESSION['id_utilisateur'];
 		$code=$this->input->post('code');
 		$this->load->model('code/Codemodel','Codemodel');
+        $codeBe=$this->Codemodel->get_by_name($code);
+        $id_code=$codeBe['id_code'];
         $is_disponible=$this->Codemodel->get_disponibilite_code($code);
         if($is_disponible==null)
         {
             redirect(base_url('Caisse/rechargement'));
         }
         $this->Codemodel->update_to_attente_code($code);
+        $this->load->model('caisse/Caisse_model','Caisse_model');
+        $this->Caisse_model->insert_rechargement($id_utilisateur,$id_code);
         redirect(base_url('Utilisateur/home'));
     }
 
@@ -40,7 +46,7 @@ class Caisse extends CI_Controller {
     {
         $this->load->model('code/Codemodel','Codemodel');
         $data['all_code']=$this->Codemodel->get_liste_code_attente();
-        $this->load->view('code/liste_code_attente',$data);
+        $this->load->view('caisse/liste_code_attente',$data);
     }
 
     public function validation_code_trait()

@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
 	 
 	public function __construct(){
         parent::__construct();
+		$this->load->model("admin/Admin_model" , "Adminmodel");
 		$this->load->model("utilisateur/Utilisateurmodel" , "utilisateur");
 		$this->load->model("statistique/Regime_vendu" , "vendu");
 		$this->load->model('admin/Admin_model' , 'Adminmodel');
@@ -22,7 +23,7 @@ class Admin extends CI_Controller {
 
 		if($verification==null)
 		{
-			redirect(site_url('utilisateur/login'));
+			redirect(site_url('Admin/login'));
 		}
 		else
 		{

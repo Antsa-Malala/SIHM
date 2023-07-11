@@ -50,9 +50,15 @@
                 <div class="card-body">
                     <div class="row">
                       <div class="mb-4">
+<<<<<<< Updated upstream
                           <div class="input-group input-group-static my-3">
                               <label>Email</label>
                               <input type="mail" class="form-control" name="mail" value="johnDoe@example.com">
+=======
+                          <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Email</label>
+                              <input type="mail" class="form-control" name="mail" value="admin1@example.com">
+>>>>>>> Stashed changes
                           </div>
                       </div>
                       <div class="mb-4">

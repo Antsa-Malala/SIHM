@@ -36,7 +36,7 @@
 
         public function get_liste_code_attente()
         {
-            $query = $this->db->query("select * from code where etat=5");
+            $query = $this->db->query("select somme,nom,code,code.id_code as id_code from code join rechargement on code.id_code=rechargement.id_code join utilisateur on rechargement.id_utilisateur=utilisateur.id_utilisateur where code.etat=5");
             $result = array();
             foreach($query->result_array() as $row)
             {
@@ -75,6 +75,19 @@
                 array_push($result,$row);
             }
             return $result;   
+        }
+
+        public function get_by_name($name)
+        {
+            $result=0;
+            $query="select * from code where code=%s";
+            $query=sprintf($query,$this->db->escape($name));
+            $query = $this->db->query($query);
+            foreach($query->result_array() as $row)
+            {
+                $result=$row;
+            }
+            return $result;
         }
     }
     
