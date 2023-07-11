@@ -52,13 +52,13 @@
                       <div class="mb-4">
                           <div class="input-group input-group-outline my-3">
                               <label class="form-label">Email</label>
-                              <input type="email" class="form-control" name="mail">
+                              <input type="mail" class="form-control" name="mail" value="john.doe@example.com">
                           </div>
                       </div>
                       <div class="mb-4">
                           <div class="input-group input-group-outline my-3">
                             <label class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" name="mdp">
+                            <input type="password" class="form-control" name="mdp" value="password123">
                           </div>
                       </div>
                     </div>

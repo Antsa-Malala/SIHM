@@ -44,15 +44,14 @@ class Utilisateur extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
+		echo $mdp;
 		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
 
-		if($verification==null)
-		{
+		if($verification==null){
 			redirect(base_url('Utilisateur/login'));
 		}
-		else
-		{
+		else{
 			session_start();
             $_SESSION['id_utilisateur']=$verification['id_utilisateur'];
 			redirect(base_url('Utilisateur/home'));

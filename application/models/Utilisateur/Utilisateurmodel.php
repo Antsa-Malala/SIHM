@@ -12,10 +12,10 @@
 
         public function login_utilisateur($mail,$mdp)
         {
-            $sql="select * from utilisateur where mail=%s and mdp=%s";
+            $sql="select * from utilisateur where mail LIKE %s and mdp LIKE %s";
             $sql=sprintf($sql,$this->db->escape($mail),$this->db->escape($mdp));
             $query=$this->db->query($sql);
-
+            echo $sql;
             $result = null;
 
             foreach($query->result_array() as $row)
@@ -60,6 +60,25 @@
             }
             return $result;
         }
+<<<<<<< Updated upstream
+=======
+
+        public function get_objectif_now_utilisateur($id)
+        {
+            $sql="select * from objectif where id_utilisateur=%s and date_fin=null";
+            $sql=sprintf($sql,$this->db->ecape($id));
+            $query=$this->db->query($sql);
+
+            $result=null;
+
+            foreach($query->result_array() as $row)
+            {
+                $result=$row;
+            }
+
+            return $result;
+        }
+>>>>>>> Stashed changes
     }
     
     
