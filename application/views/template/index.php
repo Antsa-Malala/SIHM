@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-behavior-smooth">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/Font/fontawesome-5/css/all.min.css'); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/vertical-layout-light/style.css'); ?>">
-
-	<title>
-		<?php echo $page_title; ?>
-	</title>
-
-	<style>
-		.footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 5vh;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-	</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href=<?php echo base_url("assets/img/apple-icon.png");?>>
+  <link rel="icon" type="image/png" href=<?php echo base_url("assets/img/favicon.png");?>>
+  <title>
+    <?php echo $title; ?>
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href=<?php echo base_url("assets/css/nucleo-icons.css");?> rel="stylesheet" />
+  <link href=<?php echo base_url("assets/css/nucleo-svg.css");?> rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href=<?php echo base_url("assets/css/material-kit.css?v=3.0.0");?> rel="stylesheet" />
 </head>
+
 <body>
 	<div class="container-fluid" style="--bs-gutter-x: 0em; ">
 		<?php 
@@ -37,14 +34,16 @@
 		<?php $this->load->view('template/Footer'); ?>
 	</div>
 
-    <script src="vendors/js/vendor.bundle.base.js"></script>
-    <script src=<?php echo("js/off-canvas.js");?>></script>
-    <script src=<?php echo("js/hoverable-collapse.js");?>></script>
-    <script src=<?php echo("js/template.js");?>></script>
-    <script src=<?php echo("js/settings.js");?>></script>
-    <script src=<?php echo("js/todolist.js");?>></script>
-    <script src=<?php echo("vendors/progressbar.js/progressbar.min.js");?>></script>
-    <script src=<?php echo("vendors/chart.js/Chart.min.js");?>></script>
-    <script src=<?php echo("js/dashboard.js");?>></script>	
+  <!--   Core JS Files   -->
+  <script src=<?php echo base_url("assets/js/core/popper.min.js");?> type="text/javascript"></script>
+  <script src=<?php echo base_url("assets/js/core/bootstrap.min.js");?> type="text/javascript"></script>
+  <script src=<?php echo base_url("assets/js/plugins/perfect-scrollbar.min.js");?>></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src=<?php echo base_url("assets/js/plugins/parallax.min.js");?>></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src=<?php echo base_url("assets/js/material-kit.min.js?v=3.0.0");?> type="text/javascript"></script>
 </body>
+
 </html>

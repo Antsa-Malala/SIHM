@@ -64,4 +64,28 @@ class Caisse extends CI_Controller {
         $this->Codemodel->insert_code($code,$somme);
         redirect(base_url('Caisse/liste_code_attente'));        
     }
+
+    public function get_etat_caisse()
+    {
+        $result;
+        session_start();
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+
+        $this->load->model('regime/Regimemodel','Regimemodel');
+        $regimes_achetee=$this->Regimemodel->get_regime_achetee_par_client($id_utilisateur);
+
+        $prix_total_achetee=0;
+        for($i=0;$i<count($regimes_achetee);$i++)
+        {
+            $prix_total_achetee=$prix_total_achetee+$this->Regimemodel->get_prix_total_one_regime($regimes_achetee[$i]);
+        }
+        $result['depense']=$prix_total_achetee;
+
+        $this->load->model('code/Codemodel','Codemodel');
+        $result['recharge']=$this->Codemodel->get_prix_rechargement_par_utilisateur($id_utilisateur);
+
+        $result['etat_caisse']=$result['recharge']-$result['depense'];
+
+        return $result;
+    }
 }
