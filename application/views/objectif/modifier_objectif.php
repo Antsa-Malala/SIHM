@@ -30,12 +30,13 @@
                     <select class="form-control" name="valeur">
                     <?php 
                     for($i=1;$i<16;$i++){ 
+                      echo $value; 
                       if($value!=$i){?>
                           <option value=<?php echo $i;?>><?php echo $i;?></option>
-                      <?}
+                      <?php }
                       else{?>
                           <option value=<?php echo $i;?> selected><?php echo $i ;?></option>
-                      <?}
+                      <?php }
                     }?>
                     </select>                        
                   </div>

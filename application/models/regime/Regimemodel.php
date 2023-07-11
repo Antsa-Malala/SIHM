@@ -83,9 +83,9 @@ class Regimemodel extends CI_Controller {
         array_push($result,$membres_volou);
         for($i=0;$i<count($tableau);$i++)
         {
-            for($a=$i+1;$a<count($tableau);$a++)
+			for($a=$i+1;$a<count($tableau);$a++)
             {
-                if($membres_volou+$tableau[$a]==$poids)
+				if($membres_volou+$tableau[$a]==$poids)
                 {
                     array_push($result,$tableau[$a]);
                     return $result;
