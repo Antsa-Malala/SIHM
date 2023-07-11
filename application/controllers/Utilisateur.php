@@ -26,6 +26,22 @@ class Utilisateur extends CI_Controller {
 
 		redirect(site_url('Objectif/insert_objectif'));
 	}
+
+	public function inscription_sante_client()
+	{
+		$this->load->view('utilisateur/inscription_sante_client');
+	}
+	public function inscription_trait_sante_client()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$poids=$this->input->post('poids');
+		$taille=$this->input->post('taille');
+		$this->Utilisateurmodel->insert_taille_utilisateur($taille,$id);
+		$this->Utilisateurmodel->insert_taille_utilisateur($poids,$id);
+
+		redirect(base_url('makany amin ny choix objectif'));
+	}
 	 
 	public function login()
 	{
@@ -86,6 +102,7 @@ class Utilisateur extends CI_Controller {
 
 	public function profil()
 	{
+		session_start();
 		$id=$_SESSION['id_utilisateur'];
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$this->load->view('utilisateur/profil',$data);
@@ -97,10 +114,32 @@ class Utilisateur extends CI_Controller {
 		redirect(site_url('utilisateur/loginutilisateur'));
 	}
 
-	public function get_objectif()
+	public function get_objectif_now()
 	{
+		session_start();
 		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
 		return $data;
+	}
+
+	public function get_objectif_with_imc()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('objectif/Objectifmodel','Objectifmodel');
+		$imc=$this->Objectifmodel->getIMC($id);
+		if($imc<21)
+		{
+			$result['poids']=21-$imc;
+			$result['azo_perdu']=1;
+			return $result;
+		}
+		if($imc>21)
+		{
+			$result['poids']=$imc-21;
+			$result['azo_perdu']=0;
+			return $result;
+		}
 	}
 }
