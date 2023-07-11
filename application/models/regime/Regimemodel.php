@@ -86,8 +86,4 @@ class Regimemodel extends CI_Controller {
 		}
 		return $result;	
 	}
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }

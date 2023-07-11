@@ -71,7 +71,7 @@ class Utilisateur extends CI_Controller {
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
-		$data['objectif'] = $this->get_objectif();
+		$data['objectif'] = $this->get_objectif_now();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
 		$this->load->view('template/front-office/index' , $data);
 	}
@@ -116,7 +116,6 @@ class Utilisateur extends CI_Controller {
 
 	public function get_objectif_now()
 	{
-		session_start();
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
@@ -125,7 +124,6 @@ class Utilisateur extends CI_Controller {
 
 	public function get_objectif_with_imc()
 	{
-		session_start();
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('objectif/Objectifmodel','Objectifmodel');
 		$imc=$this->Objectifmodel->getIMC($id);

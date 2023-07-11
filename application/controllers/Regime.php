@@ -40,6 +40,12 @@ class Regime extends CI_Controller {
         redirect(base_url('Regime/select_all'));
     }
 
+    public function get_regime_proposition(){
+        $data['title'] = "Proposition Regime";
+        $data['body'] = "regime/proposition_regime";
+        $this->load->view("template/front-office/index" , $data);
+    }
+
     public function get_combinaison($poids)
     {
         $tableau = array(1,2,4,8);
