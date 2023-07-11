@@ -30,7 +30,7 @@ class Utilisateur extends CI_Controller {
 		$genre=$this->input->post('genre');
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model("Utilisateurmodel");
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
 		redirect(base_url('Utilisateur/login'));
@@ -44,7 +44,7 @@ class Utilisateur extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model("Utilisateurmodel");
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
 
 		if($verification==null)
@@ -68,6 +68,7 @@ class Utilisateur extends CI_Controller {
 	{
 		session_start();
 		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$this->load->view('utilisateur/modification',$data);
 	}
@@ -82,7 +83,7 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$this->load->model('Utilisateurmodel');
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp,$id);
 		redirect(base_url('Utilisateur/profil'));
 	}
