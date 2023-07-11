@@ -39,7 +39,7 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
-		redirect(base_url('Utilisateur/login'));
+		redirect(site_url('Objectif/insert_objectif'));
 	}
 	 
 	public function login()
@@ -89,14 +89,12 @@ class Utilisateur extends CI_Controller {
 	{
 		$nom=$this->input->post('nom');
 		$prenom=$this->input->post('prenom');
-		$date_naissance=$this->input->post('date_naissance');
-		$genre=$this->input->post('genre');
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
 		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp,$id);
-		redirect(base_url('Utilisateur/profil'));
+		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$id);
+		redirect(site_url('Utilisateur/profil'));
 	}
 
 	public function profil()
@@ -110,7 +108,7 @@ class Utilisateur extends CI_Controller {
 	public function logout()
 	{
 		session_destroy();
-		redirect(base_url('utilisateur/loginutilisateur'));
+		redirect(site_url('utilisateur/loginutilisateur'));
 	}
 
 	public function get_objectif()

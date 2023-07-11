@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start" method="post" method=<?php echo site_url("Objectif/update_objectif");?>>
+              <form role="form" class="text-start" method="post" method=<?php echo site_url("Objectif/insert_objectif");?>>
                 <div class="form-check mb-3">
                   <input class="form-check-input" type="radio" name="objectif" value="0" id="customRadio1"> 
                   <label class="custom-control-label" for="customRadio1">Perdre du poids</label>

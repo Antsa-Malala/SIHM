@@ -25,13 +25,20 @@ class Objectif extends CI_Controller {
 
     public function insert_objectif_trait()
     {
-        session_start();
         $id_utilisateur=$_SESSION['id_utilisateur'];
 		$objectif=$this->input->post('objectif');
 		$valeur=$this->input->post('valeur');
-        $this->load->model('objectif/Objectifmodel','Objectifmodel');
-        $this->Objectifmodel->insert_objectif($id_utilisateur,$objectif,$valeur);
+        $this->objectif->insert_objectif($id_utilisateur,$objectif,$valeur);
 
-        redirect(base_url('Utilisateur/home'));
+        redirect(site_url('Utilisateur/home'));
+    }
+    public function update_objectif_trait()
+    {
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+		$objectif=$this->input->post('objectif');
+		$valeur=$this->input->post('valeur');
+        $this->objectif->update_objectif($id_utilisateur,$objectif,$valeur);
+
+        redirect(site_url('Utilisateur/home'));
     }
 }

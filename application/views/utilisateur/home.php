@@ -41,7 +41,7 @@
                 <p class="h6">
                   Objectif : <?php echo $action." ".$objectif['valeur'];?> kg
                  <p class="text-lg mb-0">
-                  <br><a href="javascript:;" class="text-info icon-move-right">Modifier mon objectif
+                  <br><a href=<?php echo site_url("objectif/insert_objectif");?> class="text-info icon-move-right">Modifier mon objectif
                     <i class="fas fa-arrow-right text-sm ms-1"></i>
                   </a>
                 </p>
