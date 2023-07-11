@@ -48,8 +48,13 @@ class Admin extends CI_Controller {
 
     public function get_all_utilisateur()
     {
+<<<<<<< Updated upstream
         $this->load->model('utilisateur/Utilisateurmodel');
         $all_utilisateur=$this->Utilisateurmodel->get_all_utilisateur();
+=======
+        $this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
+        $data['all_utilisateur']=$this->Utilisateurmodel->get_all_utilisateur();
+>>>>>>> Stashed changes
         $this->load->view('utilisateur/liste_all',$data);
     }
 }
