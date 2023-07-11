@@ -38,7 +38,7 @@ class Utilisateur extends CI_Controller {
 	 
 	public function login()
 	{
-		$this->load->view('utilisateur/loginutilisateur');	
+		$this->load->view('utilisateur/Login_utilisateur');	
 	}
 	public function verif_login()
 	{

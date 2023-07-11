@@ -22,6 +22,6 @@ class Welcome extends CI_Controller {
 	{
 		// $this->load->view('welcome_message');
 		// $this->load->view('template/basic_elements');	
-		$this->load->view('utilisateur/inscription');	
+		$this->load->view('Utilisateur/Login_utilisateur');	
 	}		
 }

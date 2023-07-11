@@ -52,7 +52,7 @@
         public function get_all_utilisateur()
         {
             $sql="select * from utilisateur";
-            $this->db->query($sql);
+            $query = $this->db->query($sql);
             $result = array();
             foreach($query->result_array() as $row)
             {
