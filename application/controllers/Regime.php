@@ -73,6 +73,9 @@ class Regime extends CI_Controller {
 
     public function get_nombre_regime_achetee_trait()
     {
-        
+        $this->load->model('regime/Regimemodel','Regimemodel');
+        $result=$this->Regimemodel->get_nombre_regime_achetee();
+        return $result;
     }
+
 }

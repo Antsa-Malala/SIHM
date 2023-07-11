@@ -53,4 +53,28 @@ class Regimemodel extends CI_Controller {
 		}
 		return $result;
 	}
+
+	public function get_regime_achetee_par_client($id_utilisateur)
+	{
+		$query = $this->db->query("select * from regime_achete where id_utilisateur=%s");
+		$query=sprintf($query,$this->db->escape($id_utilisateur));
+		$result = array();
+		foreach($query->result_array() as $row)
+		{
+			array_push($result,$row);
+		}
+		return $result;
+	}
+
+	public function get_prix_total_one_regime($id_regime)
+	{
+		$query = $this->db->query("select SUM(prix) as prix_total from regime_plat join plat on regime_plat.id_plat=plat.id_plat where id_regime=%s");
+		$query=sprintf($query,$this->db->escape($id_regime));
+		$result = null;
+		foreach($query->result_array() as $row)
+		{
+			$result=$row;
+		}
+		return $result;	
+	}
 }

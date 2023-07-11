@@ -42,7 +42,7 @@ class Utilisateur extends CI_Controller {
 		}
 		else{
 			$_SESSION['id_utilisateur'] = $verification['id_utilisateur'];
-			redirect(	site_url("Utilisateur/home"));
+			redirect(site_url("Utilisateur/home"));
 		}
 	}
 
@@ -81,7 +81,7 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		$id=$_SESSION['id_utilisateur'];
 		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$taille,$poids,$id);
-		redirect(base_url('Utilisateur/profil'));
+		redirect(base_url('Utilisateur/home'));
 	}
 
 	public function profil()
