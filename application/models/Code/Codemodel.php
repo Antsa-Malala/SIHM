@@ -64,6 +64,18 @@
             }
             return $result;
         }
+
+        public function get_all_code()
+        {
+            $query="select * from code";
+            $query = $this->db->query($query);
+            $result = array();
+            foreach($query->result_array() as $row)
+            {
+                array_push($result,$row);
+            }
+            return $result;   
+        }
     }
     
     

@@ -53,7 +53,9 @@ class Caisse extends CI_Controller {
 
     public function insert_code()
     {
-        $this->load->view('code/page_insert_code');
+        $this->load->model('code/Codemodel','Codemodel');
+        $data['code']=$this->Codemodel->get_all_code();
+        $this->load->view('caisse/rechargement',$data);
     }
 
     public function insert_code_trait()
