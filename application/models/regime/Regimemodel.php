@@ -39,19 +39,26 @@ class Regimemodel extends CI_Controller {
 		return $result;
 	}
 	public function get_details_regime(){
-		$query = $this->db->query("SELECT DISTINCT v.id_regime , SUM(PRIX) as sum , poids , azo_perdu FROM 
-		(SELECT  rg.id_regime , rg.poids , rg.azo_perdu , pl.nom_plat , pl.disponibilite , pl.prix  , act.description_activite from regime_plat rpl
+		$query = $this->db->query("SELECT  rg.id_regime , rg.poids , rg.azo_perdu , pl.nom_plat , pl.disponibilite , pl.prix  , act.description_activite from regime_plat rpl
 			JOIN regime rg 
 			ON rpl.id_regime = rg.id_regime
 			JOIN plat pl
 			ON rpl.id_plat = pl.id_plat
 			JOIN activite act
-			ON rpl.id_activite = act.id_activite)
-		v GROUP BY v.id_regime
+			ON rpl.id_activite = act.id_activite
 		");
 		$results = array();
 		foreach( $query->result_array() as $row){
 			$results[] = $row; 
+		}
+		return $results;
+	}
+	public function get_details_of_one_regime($id){
+		$lst = $this->get_details_regime();
+		$results = array();
+		foreach( $lst as $row){
+			if($row['id_regime'] == $id)
+				$results[] = $row; 
 		}
 		return $results;
 	}
@@ -67,7 +74,71 @@ class Regimemodel extends CI_Controller {
 		}
 		return $result;
 	}
+    public function get_combinaison($poids)
+    {
+		// echo $poids;
+        $tableau = array(1,2,4,8);
+        $membres_volou=$tableau[0];
+        $result=array();
+        array_push($result,$membres_volou);
+        for($i=0;$i<count($tableau);$i++)
+        {
+            for($a=$i+1;$a<count($tableau);$a++)
+            {
+                if($membres_volou+$tableau[$a]==$poids)
+                {
+                    array_push($result,$tableau[$a]);
+                    return $result;
+                }
+            }
+            $membres_volou=$membres_volou+$tableau[$i];
+            array_push($result,$tableau[$i]);
+        }
+    }
+	public function get_one_regime_by_poids($poids){
+		$query = $this->db->get_where("regime" , array( "poids" => $poids));
+		// echo $this->db->last_query();
+		$result = null;
+		foreach( $query->result_array() as $row){
+			$result = $row;
+		}
+		return $result;
+	}
 
+	public function get_regime_ok($poids , $objectif){
+		$lst = $this->get_combinaison($poids);
+		$result = array();
+		$tab = array();
+		foreach($lst as $elt){
+			$tab = $this->get_all_regime_by_poids($elt , $tab);
+		}
+		$int = "";
+		if($objectif == 0)
+			$int = "Perdre";
+		else
+			$int = "Gagner";
+
+		
+		foreach($tab as $elt){
+			if($elt['azo_perdu'] == $objectif)
+				$result[] = array(
+					"id_regime" => $elt['id_regime'],
+					"poids" => $elt['poids'],
+					"prix" => $this->get_prix_total_one_regime($elt['id_regime']),
+					"poids" => $elt['poids'],
+					"objectif" => $int
+				);
+		} 
+		return $result;
+	}
+
+	public function get_all_regime_by_poids($id,$tab) {
+		$query = $this->db->get_where("regime" , array( "poids" => $id));
+		foreach( $query->result_array() as $row){
+			$tab[] = $row;
+		}
+		return $tab;
+	}
 	public function get_one_regime($id){
 		$query = $this->db->get_where("regime" , array( "id_regime" => $id));
 		$result = null;
@@ -76,9 +147,10 @@ class Regimemodel extends CI_Controller {
 		}
 		return $result;
 	}
+
 	public function get_prix_total_one_regime($id_regime)
 	{
-		$query="select SUM(prix) as prix_total from regime_plat join plat on regime_plat.id_plat=plat.id_plat where id_regime=%s";
+		$query = "select SUM(prix) as prix_total from regime_plat join plat on regime_plat.id_plat=plat.id_plat where regime_plat.id_regime LIKE %s";
 		$query=sprintf($query,$this->db->escape($id_regime));
 		$query = $this->db->query($query);
 		$result = null;
@@ -86,6 +158,6 @@ class Regimemodel extends CI_Controller {
 		{
 			$result=$row;
 		}
-		return $result;	
+		return $result['prix_total'];	
 	}
 }

@@ -30,5 +30,9 @@ SELECT DISTINCT v.id_regime , v.sum , v.date_achat FROM
         JOIN plat pl
         ON rpl.id_plat = pl.id_plat
         JOIN activite act
-        ON rpl.id_activite = act.id_activite) )v_ 
+        ON rpl.id_activite = act.id_activite) ) v
         ON rga.id_regime = v.id_regime;
+
+SELECT YEAR(date_achat),COUNT(id_regime) FROM
+    regime_achete
+    GROUP BY YEAR(date_achat);
