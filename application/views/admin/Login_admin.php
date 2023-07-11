@@ -50,14 +50,14 @@
                 <div class="card-body">
                     <div class="row">
                       <div class="mb-4">
-                          <div class="input-group input-group-outline my-3">
-                              <label class="form-label">Email</label>
+                          <div class="input-group input-group-static my-3">
+                              <label>Email</label>
                               <input type="mail" class="form-control" name="mail" value="johnDoe@example.com">
                           </div>
                       </div>
                       <div class="mb-4">
-                          <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Mot de passe</label>
+                          <div class="input-group input-group-static my-3">
+                            <label>Mot de passe</label>
                             <input type="password" class="form-control" name="mdp" value="password123">
                           </div>
                       </div>

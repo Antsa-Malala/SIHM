@@ -54,14 +54,27 @@
 
         public function get_prix_rechargement_par_utilisateur($id_utilisateur)
         {
-            $query = $this->db->query("select sum(somme) as somme_totale from rechargement join code on rechargement.id_code=code.id_code where id_utilisateur=%s");
+            $query="select sum(somme) as somme_totale from rechargement join code on rechargement.id_code=code.id_code where id_utilisateur=%s";
             $query=sprintf($query,$this->db->escape($id_utilisateur));
+            $query = $this->db->query($query);
             $result = null;
             foreach($query->result_array() as $row)
             {
                 $result=$row;
             }
             return $result;
+        }
+
+        public function get_all_code()
+        {
+            $query="select * from code";
+            $query = $this->db->query($query);
+            $result = array();
+            foreach($query->result_array() as $row)
+            {
+                array_push($result,$row);
+            }
+            return $result;   
         }
     }
     

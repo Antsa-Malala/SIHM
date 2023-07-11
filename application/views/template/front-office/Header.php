@@ -83,7 +83,7 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                Caisse
                 </h6>
-                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("Caisse/insert_code");?> class="dropdown-item border-radius-md">
                   <span>Etat de caisse</span>
                 </a>
                 <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
@@ -102,6 +102,12 @@
                    </a>
               </div>
             </div>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+              <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                <span style="margin-right: 10px;">Log out</span>
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
           </li>
         </ul>
       </div>

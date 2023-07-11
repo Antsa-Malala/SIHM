@@ -73,6 +73,10 @@ class Utilisateur extends CI_Controller {
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
 		$data['objectif'] = $this->get_objectif_now();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
+		$data['recharge']=$this->get_etat_recharge();
+		$data['depense']=$this->get_etat_depense();
+		$data['etat']=$data['recharge']-$data['depense'];
+		
 		$this->load->view('template/front-office/index' , $data);
 	}
 
@@ -122,7 +126,7 @@ class Utilisateur extends CI_Controller {
 		return $data;
 	}
 
-	public function get_objectif_with_imc()
+	public function set_objectif_with_imc()
 	{
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('objectif/Objectifmodel','Objectifmodel');
@@ -131,13 +135,39 @@ class Utilisateur extends CI_Controller {
 		{
 			$result['poids']=21-$imc;
 			$result['azo_perdu']=1;
-			return $result;
 		}
 		if($imc>21)
 		{
 			$result['poids']=$imc-21;
 			$result['azo_perdu']=0;
-			return $result;
 		}
+
+		$this->Objectifmodel->insert_objectif($id,$result['azo_perdu'],$result['poids']);
+
+	}
+
+	public function get_etat_depense()
+    {
+        $result;
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+
+        $this->load->model('regime/Regimemodel','Regimemodel');
+        $regimes_achetee=$this->Regimemodel->get_regime_achetee_par_client($id_utilisateur);
+
+        $prix_total_achetee=0;
+        for($i=0;$i<count($regimes_achetee);$i++)
+        {
+			$haha=$this->Regimemodel->get_prix_total_one_regime($regimes_achetee[$i]['id_regime']);
+            $prix_total_achetee=$prix_total_achetee+$haha['prix_total'];
+        }
+        return $prix_total_achetee;
+    }
+	public function get_etat_recharge()
+	{
+		$result;
+        $id_utilisateur=$_SESSION['id_utilisateur'];
+		$this->load->model('code/Codemodel','Codemodel');
+		$result=$this->Codemodel->get_prix_rechargement_par_utilisateur($id_utilisateur);
+		return $result['somme_totale'];
 	}
 }
