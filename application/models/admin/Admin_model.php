@@ -1,14 +1,15 @@
 <?php
     //defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class Adminmodel extends CI_Model{
+    class Admin_model extends CI_Model{
+    
 
         public function login_admin($mail,$mdp)
         {
-            $sql="select * from admin where mail=%s and mdp=%s";
+            $sql="select * from admin where email LIKE %s and mdp LIKE %s";
             $sql=sprintf($sql,$this->db->escape($mail),$this->db->escape($mdp));
             $query=$this->db->query($sql);
-
+            echo $sql;
             $result = null;
 
             foreach($query->result_array() as $row)
@@ -18,6 +19,7 @@
             
             return $result;
         }
+
     }
     
     
