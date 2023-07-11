@@ -3,7 +3,7 @@
     
     class Caisse_model extends CI_Model{
 
-        public function verification_caisse($id,$somme)
+        public function verification_caisse($code)
         {
             $sql="select * from code where code=%s and etat=1";
             $sql=sprintf($sql,$this->db->escape($code));
