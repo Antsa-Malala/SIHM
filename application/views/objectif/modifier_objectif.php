@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start" method="post" method=<?php echo site_url("Objectif/update_objectif");?>>
+              <form role="form" class="text-start" method="post" action=<?php echo site_url("Objectif/update_objectif_trait");?>>
                 <div class="form-check mb-3">
                   <input class="form-check-input" type="radio" name="objectif" value="0" id="customRadio1"> 
                   <label class="custom-control-label" for="customRadio1">Perdre du poids</label>
@@ -28,21 +28,21 @@
                   </div>
                   <div class="dropdown">
                     <select class="form-control" name="valeur">
-                      <option value="Choice 1">1</option>
-                      <option value="Choice 2">2</option>
-                      <option value="Choice 3">3</option>
-                      <option value="Choice 4">4</option>
-                      <option value="Choice 4">5</option>
-                      <option value="Choice 4">6</option>
-                      <option value="Choice 4">7</option>
-                      <option value="Choice 4">8</option>
-                      <option value="Choice 4"selected>9</option>
-                      <option value="Choice 4">10</option>
-                      <option value="Choice 4">11</option>
-                      <option value="Choice 4">12</option>
-                      <option value="Choice 4">13</option>
-                      <option value="Choice 4">14</option>
-                      <option value="Choice 4">15</option>
+                    <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9"selected>9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
                     </select>                        
                   </div>
                 </div>             

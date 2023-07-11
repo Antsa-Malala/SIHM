@@ -26,13 +26,13 @@
 <body>
 	<div class="container-fluid" style="--bs-gutter-x: 0em; ">
 		<?php 
-			$this->load->view('template/Header');
+			$this->load->view('template/front-office/Header');
 			$this->load->view( $body );
 		?>
 	</div>
 
 	<div class="footer">
-		<?php $this->load->view('template/Footer'); ?>
+		<?php $this->load->view('template/front-office/Footer'); ?>
 	</div>
 
   <!--   Core JS Files   -->

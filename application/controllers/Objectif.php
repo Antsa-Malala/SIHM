@@ -19,14 +19,24 @@ class Objectif extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-    public function insert_objectif()
-    {
-		$data['title'] = "Objectif";
-		$data['body'] = "objectif/modifier_objectif";
-		$this->load->view('template/index' , $data);
-    }
-	public function update_objectif()
+	public function __construct(){
+		parent::__construct();
+		session_start();
+		$this->load->model("objectif/Objectifmodel" , "objectif");
+	}
+
+	public function insert_objectif()
 	{
+		$data['title'] = "Insert Objectif";
+		$data['body'] = "objectif/insert_objectif";
+		$this->load->view('template/front-office/index' , $data);
+	}
+
+	public function modifier_objectif()
+	{
+		$data['title'] = "Modifier Objectif";
+		$data['body'] = "objectif/modifier_objectif";
+		$this->load->view('template/front-office/index' , $data);
 	}
 
     public function insert_objectif_trait()
@@ -35,7 +45,6 @@ class Objectif extends CI_Controller {
 		$objectif=$this->input->post('objectif');
 		$valeur=$this->input->post('valeur');
         $this->objectif->insert_objectif($id_utilisateur,$objectif,$valeur);
-
         redirect(site_url('Utilisateur/home'));
     }
     public function update_objectif_trait()
@@ -44,7 +53,6 @@ class Objectif extends CI_Controller {
 		$objectif=$this->input->post('objectif');
 		$valeur=$this->input->post('valeur');
         $this->objectif->update_objectif($id_utilisateur,$objectif,$valeur);
-
         redirect(site_url('Utilisateur/home'));
     }
 }
