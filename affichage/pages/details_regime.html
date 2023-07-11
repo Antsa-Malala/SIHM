@@ -34,7 +34,7 @@
   <link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
 </head>
 
-<body class="about-us bg-gray-200">
+<body class="blog-author bg-gray-200">
   <!-- Navbar Transparent -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
@@ -52,7 +52,7 @@
         <ul class="navbar-nav navbar-nav-hover ms-auto">
           <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md"></i>
+              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
               Profil
               <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
               <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -84,7 +84,7 @@
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md"></i>
+              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
              Régime
               <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
               <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -110,7 +110,7 @@
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md"></i>
+              <i class="material-icons opacity-6 me-2 text-md">article</i>
              Caisse
               <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
               <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -145,197 +145,67 @@
     </div>
   </nav>
   <!-- End Navbar -->
-  <!-- -------- START HEADER 7 w/ text and video ------- -->
-  <header class="bg-gradient-dark">
-    <div class="page-header min-vh-75" style="background-image: url('../assets/img/how-to-eat-healthy.webp');">
-      <span class="mask bg-gradient-dark opacity-6"></span>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1 class="text-white">La santé et la gourmandise se rencontrent pour vous offrir une expérience unique.</h1>
-            <p class="lead mb-4 text-white opacity-8">Préparez-vous à savourer des régimes alimentaires équilibrés avec une touche de plaisir ! </p>
+  <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+  <header>
+    <div class="page-header min-height-400" style="background-image: url('../assets/img/how-to-eat-healthy.webp');" loading="lazy">
+    </div>
+  </header>
+  <section class="py-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card box-shadow-xl overflow-hidden mb-5">
+            <div class="row">
+              <div class="col-lg-12">
+                <form class="p-3" id="contact-form" method="post">
+                  <div class="card-header px-4 py-sm-5 py-3">
+                    <h2>Say Hi!</h2>
+                    <p class="lead"> We'd like to talk with you.</p>
+                  </div>
+                  <div class="card-body pt-1">
+                    <div class="row">
+                      <div class="col-md-12 pe-2 mb-3">
+                        <div class="input-group input-group-static mb-4">
+                          <label>My name is</label>
+                          <input type="text" class="form-control" placeholder="Full Name">
+                        </div>
+                      </div>
+                      <div class="col-md-12 pe-2 mb-3">
+                        <div class="input-group input-group-static mb-4">
+                          <label>I'm looking for</label>
+                          <input type="text" class="form-control" placeholder="What you love">
+                        </div>
+                      </div>
+                      <div class="col-md-12 pe-2 mb-3">
+                        <div class="input-group input-group-static mb-4">
+                          <label>Your message</label>
+                          <textarea name="message" class="form-control" id="message" rows="6" placeholder="I want to say that..."></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 text-end ms-auto">
+                        <button type="submit" class="btn bg-gradient-info mb-0">Send Message</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
-  <!-- -------- END HEADER 7 w/ text and video ------- -->
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <!-- Section with four info areas left & one card right with image and waves -->
-    <section class="py-7">
-      <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-lg">
-                <span class="badge rounded-pill bg-light text-dark w-30 mt-n2 mx-auto">Regime 1</span>
-                <div class="card-header text-center pt-4 pb-3">
-                  <h1 class="font-weight-bold mt-2">
-                    <small class="text-lg mb-auto">Ar</small>500<small class="text-lg">/1 semaine</small>
-                  </h1>
-                </div>
-                <div class="card-body text-lg-start text-center pt-0">
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Gateau</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Légumes </span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Salade</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">remove</i>
-                    <span class="ps-3">Musculation </span>
-                  </div>
-                  <a href="javascript:;" class="btn btn-icon bg-gradient-dark d-lg-block mt-3 mb-0">
-                    Acheter
-                    <i class="fas fa-arrow-right ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>     
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-lg">
-                <span class="badge rounded-pill bg-light text-dark w-30 mt-n2 mx-auto">Regime 2</span>
-                <div class="card-header text-center pt-4 pb-3">
-                  <h1 class="font-weight-bold mt-2">
-                    <small class="text-lg mb-auto">Ar</small>5000<small class="text-lg"> /1 semaine</small>
-                  </h1>
-                </div>
-                <div class="card-body text-lg-start text-center pt-0">
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Koba</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Légumes </span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">done</i>
-                    <span class="ps-3">Salade</span>
-                  </div>
-          
-                  <div class="d-flex justify-content-lg-start justify-content-center p-2">
-                    <i class="material-icons my-auto">remove</i>
-                    <span class="ps-3">Musculation </span>
-                  </div>
-                  <a href="javascript:;" class="btn btn-icon bg-gradient-dark d-lg-block mt-3 mb-0">
-                    Acheter
-                    <i class="fas fa-arrow-right ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>     
-        </div>
-      </div>
-    </section>
-  </div>
-  <!--   Core JS Files   -->
+  </section>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-  <script src="../assets/js/plugins/countup.min.js"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
   <script src="../assets/js/plugins/parallax.min.js"></script>
   <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
-  <script>
-    // get the element to animate
-    var element = document.getElementById('count-stats');
-    var elementHeight = element.clientHeight;
-
-    // listen for scroll event and call animate function
-
-    document.addEventListener('scroll', animate);
-
-    // check if element is in view
-    function inView() {
-      // get window height
-      var windowHeight = window.innerHeight;
-      // get number of pixels that the document is scrolled
-      var scrollY = window.scrollY || window.pageYOffset;
-      // get current scroll position (distance from the top of the page to the bottom of the current viewport)
-      var scrollPosition = scrollY + windowHeight;
-      // get element position (distance from the top of the page to the bottom of the element)
-      var elementPosition = element.getBoundingClientRect().top + scrollY + elementHeight;
-
-      // is scroll position greater than element position? (is element in view?)
-      if (scrollPosition > elementPosition) {
-        return true;
-      }
-
-      return false;
-    }
-
-    var animateComplete = true;
-    // animate element when it is in view
-    function animate() {
-
-      // is element in view?
-      if (inView()) {
-        if (animateComplete) {
-          if (document.getElementById('state1')) {
-            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
-            if (!countUp.error) {
-              countUp.start();
-            } else {
-              console.error(countUp.error);
-            }
-          }
-          if (document.getElementById('state2')) {
-            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
-            if (!countUp1.error) {
-              countUp1.start();
-            } else {
-              console.error(countUp1.error);
-            }
-          }
-          if (document.getElementById('state3')) {
-            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
-            if (!countUp2.error) {
-              countUp2.start();
-            } else {
-              console.error(countUp2.error);
-            };
-          }
-          animateComplete = false;
-        }
-      }
-    }
-
-    if (document.getElementById('typed')) {
-      var typed = new Typed("#typed", {
-        stringsElement: '#typed-strings',
-        typeSpeed: 90,
-        backSpeed: 90,
-        backDelay: 200,
-        startDelay: 500,
-        loop: true
-      });
-    }
-  </script>
-  <script>
-    if (document.getElementsByClassName('page-header')) {
-      window.onscroll = debounce(function() {
-        var scrollPosition = window.pageYOffset;
-        var bgParallax = document.querySelector('.page-header');
-        var oVal = (window.scrollY / 3);
-        bgParallax.style.transform = 'translate3d(0,' + oVal + 'px,0)';
-      }, 6);
-    }
-  </script>
 </body>
 
 </html>
