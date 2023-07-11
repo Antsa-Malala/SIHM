@@ -103,6 +103,12 @@
               </div>
             </div>
           </li>
+          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+              <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                <span style="margin-right: 10px;">Log out</span>
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
