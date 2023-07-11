@@ -1,11 +1,11 @@
 --utilisateur
 INSERT INTO utilisateur (nom, prenom, date_naissance, genre, mail, mdp)
 VALUES
-  ('Doe', 'John', '1990-01-01', 1, 'john.doe@example.com', 'password123'),
-  ('Smith', 'Emma', '1995-02-15', 0, 'emma.smith@example.com', 'password456'),
-  ('Johnson', 'Michael', '1985-07-10', 1, 'michael.johnson@example.com', 'password789'),
-  ('Brown', 'Sophia', '1992-09-20', 0, 'sophia.brown@example.com', 'password987'),
-  ('Wilson', 'Olivia', '1988-06-25', 0, 'olivia.wilson@example.com', 'password654');
+  ('Doe', 'John', '1990-01-01', 1, 'johnDoe@example.com', 'password123'),
+  ('Smith', 'Emma', '1995-02-15', 0, 'emmaSmith@example.com', 'password456'),
+  ('Johnson', 'Michael', '1985-07-10', 1, 'michaelJohnson@example.com', 'password789'),
+  ('Brown', 'Sophia', '1992-09-20', 0, 'sophiaBrown@example.com', 'password987'),
+  ('Wilson', 'Olivia', '1988-06-25', 0, 'oliviaWilson@example.com', 'password654');
 
 --poids
 INSERT INTO poids (id_utilisateur, poids, date_debut)
@@ -41,23 +41,26 @@ VALUES
   ('Sushi Assortiment', 1, 15.99);
 
 --code
+--0 : efa lany
+--10 : mbola tsy anmpiasaina
+--5 : miandry
 INSERT INTO code (etat, code, somme)
 VALUES
-(0,'0875480234',10000),
-(0,'4678O80234',15000),
-(0,'1345880234',20000),
-(0,'3257980234',25000),
-(0,'6479079098',30000),
-(1,'4326780234',35000),
-(1,'4326780234',40000),
-(1,'6646780234',45000),
-(1,'0866780234',50000),
-(1,'9756780234',60000),
-(1,'8906780234',70000),
-(1,'3909480234',80000),
-(1,'6556780234',90000),
-(1,'6756784574',100000),
-(1,'5756787684',100000);
+(10,'0875480234',10000),
+(10,'4678O80234',15000),
+(10,'1345880234',20000),
+(10,'3257980234',25000),
+(10,'6479079098',30000),
+(10,'4326780234',35000),
+(10,'4326780234',40000),
+(10,'6646780234',45000),
+(10,'0866780234',50000),
+(10,'9756780234',60000),
+(0,'8906780234',70000),
+(0,'3909480234',80000),
+(0,'6556780234',90000),
+(0,'6756784574',100000),
+(0,'5756787684',100000);
 
 --activite
 INSERT INTO activite (description_activite)
