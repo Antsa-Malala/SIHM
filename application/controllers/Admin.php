@@ -2,23 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	 
+	public function __construct(){
+        parent::__construct();
+		$this->load->model("utilisateur/Utilisateurmodel" , "utilisateur");
+		$this->load->model("regime/Regimemodel" , "regime");
+	}
 	public function login()
 	{
 		$this->load->view('admin/Login_admin');	
@@ -32,24 +21,32 @@ class Admin extends CI_Controller {
 
 		if($verification==null)
 		{
-
-			redirect(base_url('utilisateur/login'));
+			redirect(site_url('utilisateur/login'));
 		}
 		else
 		{
-			redirect(base_url('admin/home'));
+			redirect(site_url('admin/home'));
 		}
 	}
 
 	public function home()
 	{
-		$this->load->view('admin/home');
+		$lst = $this->regime->get_nombre_regime_achetee();
+		$data['title'] = "Tableau de Bord";
+		$data['body'] = "admin/tableau_de_bord";
+		$data['nbruser'] = count($this->utilisateur->get_all_utilisateur());
+		$data['regimevendu'] = $lst;
+		$nbr = 0;
+		foreach( $lst as $elt){
+			$nbr += $elt['nombre'];
+		}
+		$data['nbr'] = $nbr;
+		$this->load->view('template/back-office/index' , $data);
 	}
 
     public function get_all_utilisateur()
     {
-        $this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
-        $data['all_utilisateur']=$this->Utilisateurmodel->get_all_utilisateur();
+        $data['all_utilisateur']=$this->utilisateur->get_all_utilisateur();
         $this->load->view('utilisateur/liste_all',$data);
     }
 }

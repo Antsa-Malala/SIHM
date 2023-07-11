@@ -32,11 +32,17 @@
 
 <!-- Font Awesome Icons -->
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script
 src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
   defer
   ></script>
+<script src="./assets/js/init-alpine.js"></script>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
@@ -46,6 +52,25 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
   function drawChart() {
       var ctx = document.getElementById("myChart").getContext("2d");
       var datasets = [];
+  function couleur() {
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      var color = "rgb(" + red + "," + green + "," + blue + ")";
+
+      return color;
+    }
+  function drawChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var datasets = [];
+      for (var i = 0; i < 4; i++) {
+        var dataset = {
+          label: "element"+i,
+          backgroundColor: couleur(),
+          data:(i+1)*10
+        };
+        datasets.push(dataset);
+      }
       var data = {
   labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   datasets: datasets 
@@ -74,21 +99,70 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       });
   }
 
+      var options = {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: 'black'
+          }
+        },  
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true 
+            }
+          }]
+        }
+      };
+    console.log("haha");
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+  }
+
 </script>
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+   window.onload = function() {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'], 
+    datasets: [{
+      label: 'Données',
+      data: [10, 20, 30, 40, 50],
+      backgroundColor: 'blue'
+    }]
+  };
+  
+  var options = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+  
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+};
 
-<!-- CSS Files -->
-
-
-
+</script>
 <link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
 
 
 
 </head>
 
-<body class="index-page bg-gray-200" onload="drawChart()">
+<body class="index-page bg-gray-200">
   
   
   <!-- Navbar -->
@@ -229,14 +303,14 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
           <div class="col-md-6">
             <div class="p-3 text-center">
               <h1 class="text-gradient text-primary">+<span id="state1" countTo="70">0</span></h1>
-              <h5 class="mt-3">Nombre des membres</h5>
+              <h5 class="mt-3">Nombre des menus vendus</h5>
             </div>
             <hr class="vertical dark">
-          </div>
-          <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
             <div class="p-3 text-center">
-              <h1 class="text-gradient text-primary"> +<span id="state2" countTo="15">0</span></h1>
-              <h5 class="mt-3">Nombre des menus vendus</h5>
+            <h1 class="text-gradient text-primary"> +<span id="state2" countTo="15">0</span></h1>
+                <h5 class="mt-3">Nombre des membres</h5>
             </div>
             <hr class="vertical dark">
           </div>
@@ -245,13 +319,43 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
     </div>
   </div>
   <div>
+    <div  class="mx-12 ">
+        <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+            <div class="p-3 info-horizontal">
+              <div class="icon icon-shape  bg-gradient-primary shadow-primary text-center">
+                <i class="fas fa-seedling opacity-10"></i>
+              </div>
+              <div class="description ps-3">
+                <p class="mb-0">Régime 1 <br> 67 vendus</p>
+              </div>
+            </div>
+    
+            <div class="p-3 info-horizontal">
+              <div class="icon icon-shape  bg-gradient-primary shadow-primary text-center">
+                <i class="fas fa-seedling opacity-10"></i>
+              </div>
+              <div class="description ps-3">
+                <p class="mb-0">Regime 2 <br>89 vendus</p>
+              </div>
+            </div>
+            <div class="p-3 info-horizontal">
+              <div class="icon icon-shape  bg-gradient-primary shadow-primary text-center">
+                <i class="fas fa-seedling opacity-10"></i>
+              </div>
+              <div class="description ps-3">
+                <p class="mb-0">Regime 3 <br>45 vendus</p>
+              </div>
+            </div>
+          </div>
+    </div>
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
       Statistiques des menus vendus
     </h2>
-    <canvas id="myChart" width="1000" height="500"></canvas>
+    <canvas id="myChart" width="400" height="300"></canvas>
   </div>
+  
 </section>
 </div>
 <!--   Core JS Files   -->
@@ -288,24 +392,11 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
 <script src="../assets/js/plugins/parallax.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
 <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
 <!--  Google Maps Plugin    -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 <script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
-
-
 <script type="text/javascript">
 
   if (document.getElementById('state1')) {

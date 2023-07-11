@@ -24,7 +24,23 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
-		redirect(base_url('Utilisateur/login'));
+		redirect(site_url('Objectif/insert_objectif'));
+	}
+
+	public function inscription_sante_client()
+	{
+		$this->load->view('utilisateur/inscription_sante_client');
+	}
+	public function inscription_trait_sante_client()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$poids=$this->input->post('poids');
+		$taille=$this->input->post('taille');
+		$this->Utilisateurmodel->insert_taille_utilisateur($taille,$id);
+		$this->Utilisateurmodel->insert_taille_utilisateur($poids,$id);
+
+		redirect(base_url('makany amin ny choix objectif'));
 	}
 	 
 	public function login()
@@ -38,10 +54,11 @@ class Utilisateur extends CI_Controller {
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
 
 		if($verification==null){
-			redirect(site_url('Utilisateur/login'));
+			redirect("Utilisateur/login");
 		}
 		else{
-			redirect(base_url('Utilisateur/home'));
+			$_SESSION['id_utilisateur'] = $verification['id_utilisateur'];
+			redirect(site_url("Utilisateur/home"));
 		}
 	}
 
@@ -49,14 +66,14 @@ class Utilisateur extends CI_Controller {
 	{
 		$id = $_SESSION['id_utilisateur'];
 		$data['title'] = "Profil";
+		$data['body'] = 'utilisateur/home';
 		$data['user'] = $this->Utilisateurmodel->get_one_utilisateur($id);
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
 		$data['objectif'] = $this->get_objectif();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
-		$data['body'] = 'utilisateur/home';
-		$this->load->view('template/index' , $data);
+		$this->load->view('template/front-office/index' , $data);
 	}
 
 	public function modifier()
@@ -67,22 +84,25 @@ class Utilisateur extends CI_Controller {
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
-		$this->load->view('template/index',$data);
+		$this->load->view('template/front-office/index',$data);
 	}
 
 	public function modifier_trait()
 	{
 		$nom=$this->input->post('nom');
 		$prenom=$this->input->post('prenom');
+		$poids=$this->input->post('poids');
+		$taille=$this->input->post('taille');
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
 		$id=$_SESSION['id_utilisateur'];
-		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$id);
-		redirect(site_url('Utilisateur/home'));
+		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$taille,$poids,$id);
+		redirect(base_url('Utilisateur/home'));
 	}
 
 	public function profil()
 	{
+		session_start();
 		$id=$_SESSION['id_utilisateur'];
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$this->load->view('utilisateur/profil',$data);
@@ -91,13 +111,35 @@ class Utilisateur extends CI_Controller {
 	public function logout()
 	{
 		session_destroy();
-		redirect(base_url('utilisateur/loginutilisateur'));
+		redirect(site_url('utilisateur/loginutilisateur'));
 	}
 
-	public function get_objectif()
+	public function get_objectif_now()
 	{
+		session_start();
 		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
 		return $data;
+	}
+
+	public function get_objectif_with_imc()
+	{
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$this->load->model('objectif/Objectifmodel','Objectifmodel');
+		$imc=$this->Objectifmodel->getIMC($id);
+		if($imc<21)
+		{
+			$result['poids']=21-$imc;
+			$result['azo_perdu']=1;
+			return $result;
+		}
+		if($imc>21)
+		{
+			$result['poids']=$imc-21;
+			$result['azo_perdu']=0;
+			return $result;
+		}
 	}
 }
