@@ -33,6 +33,97 @@
 <!-- Font Awesome Icons -->
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+  defer
+  ></script>
+<script src="./assets/js/init-alpine.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+<link rel="stylesheet" href="./assets/css/style_produit.css" />
+<script type="text/javascript">
+  function drawChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var datasets = [];
+  function couleur() {
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      var color = "rgb(" + red + "," + green + "," + blue + ")";
+
+      return color;
+    }
+  function drawChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var datasets = [];
+      for (var i = 0; i < 4; i++) {
+        var dataset = {
+          label: "element"+i,
+          backgroundColor: couleur(),
+          data:(i+1)*10
+        };
+        datasets.push(dataset);
+      }
+      var data = {
+  labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  datasets: datasets 
+};
+      var options = {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: 'black'
+          }
+        },  
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true 
+            }
+          }]
+        }
+      };
+
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+  }
+
+      var options = {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: 'black'
+          }
+        },  
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true 
+            }
+          }]
+        }
+      };
+    console.log("haha");
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+  }
+
+</script>
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -301,24 +392,11 @@
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
 <script src="../assets/js/plugins/parallax.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
 <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
 <!--  Google Maps Plugin    -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 <script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
-
-
 <script type="text/javascript">
 
   if (document.getElementById('state1')) {

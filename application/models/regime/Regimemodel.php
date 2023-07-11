@@ -77,4 +77,5 @@ class Regimemodel extends CI_Controller {
 		}
 		return $result;	
 	}
+
 }
