@@ -14,198 +14,354 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Material Kit 2 by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+<title>
+  Material Kit 2 by Creative Tim
+</title>
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+<!-- Nucleo Icons -->
+<link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+  defer
+  ></script>
+<script src="./assets/js/init-alpine.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+<link rel="stylesheet" href="./assets/css/style_produit.css" />
+<script type="text/javascript">
+  function drawChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var datasets = [];
+  function couleur() {
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      var color = "rgb(" + red + "," + green + "," + blue + ")";
+
+      return color;
+    }
+  function drawChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var datasets = [];
+      for (var i = 0; i < 4; i++) {
+        var dataset = {
+          label: "element"+i,
+          backgroundColor: couleur(),
+          data:(i+1)*10
+        };
+        datasets.push(dataset);
+      }
+      var data = {
+  labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  datasets: datasets 
+};
+      var options = {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: 'black'
+          }
+        },  
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true 
+            }
+          }]
+        }
+      };
+
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+  }
+
+      var options = {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: 'black'
+          }
+        },  
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true 
+            }
+          }]
+        }
+      };
+    console.log("haha");
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+  }
+
+</script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+   window.onload = function() {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'], 
+    datasets: [{
+      label: 'Données',
+      data: [10, 20, 30, 40, 50],
+      backgroundColor: 'blue'
+    }]
+  };
+  
+  var options = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+  
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+};
+
+</script>
+<link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+
+
+
 </head>
 
-<body class="blog-author bg-gray-200">
-  <!-- Navbar Transparent -->
-  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
-    <div class="container">
-      <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-       E-Kaly
-      </a>
-      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon mt-2">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </span>
-      </button>
-      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
-        <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
-              Profil
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
-              <div class="d-none d-lg-block">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                 Mon profil
-                </h6>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Voir mon profil</span>
+<body class="index-page bg-gray-200">
+  
+  
+  <!-- Navbar -->
+<div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
+    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
+        <div class="container">
+          <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+           E-Kaly
+          </a>
+          <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon mt-2">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
+            <ul class="navbar-nav navbar-nav-hover ms-auto">
+              <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="material-icons opacity-6 me-2 text-md"></i>
+                  Profil
+                  <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
+                  <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
                 </a>
-                <a href="../pages/contact-us.html" class="dropdown-item border-radius-md">
-                  <span>Modifier mon profil</span>
+                <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
+                  <div class="d-none d-lg-block">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                     Mon profil
+                    </h6>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Voir mon profil</span>
+                    </a>
+                    <a href="../pages/contact-us.html" class="dropdown-item border-radius-md">
+                      <span>Modifier mon profil</span>
+                    </a>
+                  </div>
+                  <div class="d-lg-none">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                      Mon profil
+                    </h6>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Voir mon profil</span>
+                    </a>
+                    <a href="../pages/contact-us.html" class="dropdown-item border-radius-md">
+                      <span>Modifier mon profil</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="material-icons opacity-6 me-2 text-md"></i>
+                 Régime
+                  <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
+                  <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
                 </a>
-              </div>
-              <div class="d-lg-none">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                  Mon profil
-                </h6>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Voir mon profil</span>
+                <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
+                  <div class="d-none d-lg-block">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                    Régimes
+                    </h6>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Voir les propositions de menus</span>
+                    </a>
+                  </div>
+                  <div class="d-lg-none">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                    Régimes
+                    </h6>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Voir les propositions de menus</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="material-icons opacity-6 me-2 text-md"></i>
+                 Caisse
+                  <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
+                  <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
                 </a>
-                <a href="../pages/contact-us.html" class="dropdown-item border-radius-md">
-                  <span>Modifier mon profil</span>
+                <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
+                  <div class="d-none d-lg-block">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                   Caisse
+                    </h6>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Etat de caisse</span>
+                    </a>
+                    <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                      <span>Recharger ma caisse</span>
+                    </a>
+                  </div>
+                  <div class="d-lg-none">
+                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                      Caisse
+                       </h6>
+                       <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                         <span>Etat de caisse</span>
+                       </a>
+                       <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+                         <span>Recharger ma caisse</span>
+                       </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+                  <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                    <span style="margin-right: 10px;">Log out</span>
+                    <i class="fas fa-sign-out-alt"></i>
                 </a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-             Régime
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
-              <div class="d-none d-lg-block">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                Régimes
-                </h6>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Voir les propositions de menus</span>
-                </a>
-              </div>
-              <div class="d-lg-none">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                Régimes
-                </h6>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Voir les propositions de menus</span>
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">article</i>
-             Caisse
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
-              <div class="d-none d-lg-block">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-               Caisse
-                </h6>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Etat de caisse</span>
-                </a>
-                <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                  <span>Recharger ma caisse</span>
-                </a>
-              </div>
-              <div class="d-lg-none">
-                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                  Caisse
-                   </h6>
-                   <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                     <span>Etat de caisse</span>
-                   </a>
-                   <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
-                     <span>Recharger ma caisse</span>
-                   </a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- End Navbar -->
-  <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
-  <header>
-    <div class="page-header min-height-400" style="background-image: url('../assets/img/how-to-eat-healthy.webp');" loading="lazy">
-    </div>
-  </header>
-  <section class="py-lg-5">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<!-- End Navbar -->
+</div></div></div>
+
+
+<header class="header-2">
+  <div class="page-header min-vh-75 relative" style="background-image: url('../assets/img/plant-based-food-mc-220323-02-273c7b.webp')">
+    <span class="mask bg-gradient-dark opacity-8"></span>
     <div class="container">
       <div class="row">
-        <div class="col">
-          <div class="card box-shadow-xl overflow-hidden mb-5">
-            <div class="row">
-              <div class="col-lg-12">
-                <form class="p-3" id="contact-form" method="post">
-                  <div class="card-header px-4 py-sm-5 py-3">
-                    <h2>Say Hi!</h2>
-                    <p class="lead"> We'd like to talk with you.</p>
-                  </div>
-                  <div class="card-body pt-1">
-                    <div class="row">
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>My name is</label>
-                          <input type="text" class="form-control" placeholder="Full Name">
-                        </div>
-                      </div>
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>I'm looking for</label>
-                          <input type="text" class="form-control" placeholder="What you love">
-                        </div>
-                      </div>
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>Your message</label>
-                          <textarea name="message" class="form-control" id="message" rows="6" placeholder="I want to say that..."></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6 text-end ms-auto">
-                        <button type="submit" class="btn bg-gradient-info mb-0">Send Message</button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div class="col-lg-7 text-center mx-auto">
+          <h1 class="text-white pt-3 mt-n5">Détails du régime 1</h1>
+          <p class="lead text-white mt-3">Ar 5000 : 1 semaine</p>
+          <button type="submit" class="btn bg-white text-dark">Exporter en pdf</button>
         </div>
       </div>
     </div>
-  </section>
-  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
-  <script src="../assets/js/plugins/parallax.min.js"></script>
-  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
+  </div>
+</header>
+
+<div class="card card-body blur shadow-blur mt-n9" style="width: 800px;margin-left: auto;margin-right: auto;">
+    <form class="p-3" id="contact-form" method="post" >
+        <div>
+            <h5>Nom plat 1</h5>
+            <p>Prix plat 1 : Ar 1000</p>
+        </div>
+        <div>
+            <h5>Nom plat 2</h5> 
+            <p>Prix plat 2 : Ar 1400</p>
+        </div>
+        <div>
+            <h5>Activité : Musculation</h5>
+            <p>15mn </p>
+        </div>
+           
+            <div class="row">
+                <div class="col-md-6 text-end ms-auto">
+                <button type="submit" class="btn bg-gradient-info mb-0">Valider l'achat du régime</button>
+                </div>
+            </div>
+    </form>
+</div>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+
+
+
+<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+<script src="../assets/js/plugins/countup.min.js"></script>
+
+
+
+
+
+<script src="../assets/js/plugins/choices.min.js"></script>
+
+
+
+<script src="../assets/js/plugins/prism.min.js"></script>
+<script src="../assets/js/plugins/highlight.min.js"></script>
+
+
+
+<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+<script src="../assets/js/plugins/rellax.min.js"></script>
+<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+<script src="../assets/js/plugins/tilt.min.js"></script>
+<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+<script src="../assets/js/plugins/choices.min.js"></script>
+
+
+<!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+<script src="../assets/js/plugins/parallax.min.js"></script>
+<!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+<!--  Google Maps Plugin    -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+<script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
+
 </body>
 
 </html>
