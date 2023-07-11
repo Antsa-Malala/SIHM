@@ -91,7 +91,7 @@
                     <div class="input-group input-group-dynamic">
                       <label class="form-label">Mot de passe</label>
                       <input type="password" class="form-control" name="mdp">
-                    </div>mdp
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
