@@ -42,4 +42,15 @@ class Regimemodel extends CI_Controller {
 		$sql=sprintf($sql,$this->db->escape($id_utilisateur),$this->db->escape($id_regime));
 		$query=$this->db->query($sql);
 	}
+
+	public function get_nombre_regime_achetee()
+	{
+		$query = $this->db->query("select COUNT(id_utilisateur) as nombre , id_regime from regime_achete GROUP by id_regime");
+		$result = array();
+		foreach($query->result_array() as $row)
+		{
+			array_push($result,$row);
+		}
+		return $result;
+	}
 }

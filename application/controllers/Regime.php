@@ -71,5 +71,8 @@ class Regime extends CI_Controller {
         redirect(base_url('Regime/select_all'));
     }
 
-    public function get
+    public function get_nombre_regime_achetee_trait()
+    {
+        
+    }
 }
