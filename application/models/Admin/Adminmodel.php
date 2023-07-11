@@ -9,7 +9,7 @@
             $sql=sprintf($sql,$this->db->escape($mail),$this->db->escape($mdp));
             $query=$this->db->query($sql);
 
-            $result;
+            $result = null;
 
             foreach($query->result_array() as $row)
             {
