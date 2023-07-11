@@ -6,14 +6,14 @@
       <section>
         <div class="container py-4">
           <div class="row" >
-            <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column"id="sign_up">
+            <div class="col-lg-5 mx-auto d-flex justify-content-center flex-column"id="sign_up">
               <h3 class="text-center">Renseignez votre poids et votre taille</h3>
-              <form role="form" id="contact-form" method="post" action=<?php echo site_url("Utilisateur/inscription_trait");?>>
+              <form role="form" id="contact-form" method="post" action=<?php echo site_url("Utilisateur/inscription_trait_sante_client");?>>
                 <div class="card-body">
                 <div class="row">
                   <div class="mb-4">
                   <div class="input-group input-group-static mb-4">
-                        <label>Taille</label>
+                        <label>Taille(cm)</label>
                         <input class="form-control" type="number" name="taille">
                       </div>
                   </div>
