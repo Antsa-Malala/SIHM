@@ -68,7 +68,7 @@ class Utilisateur extends CI_Controller {
 	{
 		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$data=$this->Utilisateurmodel->get_one_utilisateur($id);
+		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
 		$this->load->view('utilisateur/modification',$data);
 	}
 
@@ -89,6 +89,15 @@ class Utilisateur extends CI_Controller {
 
 	public function profil()
 	{
-		$this->load->view('utilisateur/profil');
+		session_start();
+		$id=$_SESSION['id_utilisateur'];
+		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
+		$this->load->view('utilisateur/profil',$data);
+	}
+
+	public function logout()
+	{
+		session_destroy();
+		redirect(base_url('utilisateur/loginutilisateur'));
 	}
 }

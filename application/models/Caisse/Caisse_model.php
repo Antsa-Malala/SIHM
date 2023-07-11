@@ -20,8 +20,4 @@
         }
     }
     
-    SELECT reg.* FROM regime_achete reg_a
-        JOIN regime reg
-        ON reg_a.id_regime = reg.id_regime;
-    
 ?>
