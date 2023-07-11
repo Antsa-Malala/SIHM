@@ -24,7 +24,7 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
-		redirect(site_url('Objectif/insert_objectif'));
+		redirect(site_url('Utilisateur/login'));
 	}
 
 	public function inscription_sante_client()
@@ -38,9 +38,9 @@ class Utilisateur extends CI_Controller {
 		$poids=$this->input->post('poids');
 		$taille=$this->input->post('taille');
 		$this->Utilisateurmodel->insert_taille_utilisateur($taille,$id);
-		$this->Utilisateurmodel->insert_taille_utilisateur($poids,$id);
+		$this->Utilisateurmodel->insert_poids_utilisateur($poids,$id);
 
-		redirect(base_url('makany amin ny choix objectif'));
+		redirect(site_url('Objectif/insert_objectif'));
 	}
 	 
 	public function login()
@@ -58,8 +58,24 @@ class Utilisateur extends CI_Controller {
 		}
 		else{
 			$_SESSION['id_utilisateur'] = $verification['id_utilisateur'];
-			redirect(site_url("Utilisateur/home"));
+			$poids=$this->Utilisateurmodel->get_utilisateur_poids($verification['id_utilisateur']);
+			$taille=$this->Utilisateurmodel->get_utilisateur_taille($verification['id_utilisateur']);
+			if($poids!=null&&$taille!=null)
+			{
+				redirect(site_url("Utilisateur/home"));
+			}
+			else{
+				redirect(site_url("Utilisateur/taille_poids"));
+			}
 		}
+	}
+
+	public function taille_poids()
+	{
+		$data['title'] = "Insertion de poids et taille";
+		$data['body'] = 'utilisateur/taille_poids';
+		$data['id_utilisateur']=$_SESSION['id_utilisateur'];
+		$this->load->view('template/front-office/index' , $data);
 	}
 
 	public function home()
@@ -76,7 +92,6 @@ class Utilisateur extends CI_Controller {
 		$data['recharge']=$this->get_etat_recharge();
 		$data['depense']=$this->get_etat_depense();
 		$data['etat']=$data['recharge']-$data['depense'];
-		
 		$this->load->view('template/front-office/index' , $data);
 	}
 
@@ -119,7 +134,7 @@ class Utilisateur extends CI_Controller {
 	}
 
 	public function get_objectif_now()
-	{
+	{	
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
@@ -128,7 +143,6 @@ class Utilisateur extends CI_Controller {
 
 	public function set_objectif_with_imc()
 	{
-		session_start();
 		$id=$_SESSION['id_utilisateur'];
 		$this->load->model('objectif/Objectifmodel','Objectifmodel');
 		$imc=$this->Objectifmodel->getIMC($id);
@@ -149,7 +163,7 @@ class Utilisateur extends CI_Controller {
 
 	public function get_etat_depense()
     {
-        $result;
+        $result = null;
         $id_utilisateur=$_SESSION['id_utilisateur'];
 
         $this->load->model('regime/Regimemodel','Regimemodel');
@@ -159,16 +173,20 @@ class Utilisateur extends CI_Controller {
         for($i=0;$i<count($regimes_achetee);$i++)
         {
 			$haha=$this->Regimemodel->get_prix_total_one_regime($regimes_achetee[$i]['id_regime']);
-            $prix_total_achetee=$prix_total_achetee+$haha['prix_total'];
+            $prix_total_achetee=$prix_total_achetee+$haha;
         }
         return $prix_total_achetee;
     }
 	public function get_etat_recharge()
 	{
-		$result;
+		$result = null;
         $id_utilisateur=$_SESSION['id_utilisateur'];
 		$this->load->model('code/Codemodel','Codemodel');
 		$result=$this->Codemodel->get_prix_rechargement_par_utilisateur($id_utilisateur);
-		return $result['somme_totale'];
+		if($result['somme_totale']!=null)
+		{
+			return $result['somme_totale'];
+		}
+		return 0;
 	}
 }

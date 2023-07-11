@@ -1,61 +1,34 @@
 <?php
 
 	class Regime_vendu extends CI_Model{       
-        public $id_plat;
-        public $nom_plat;   
-        public $disponibilite; 
-        public $prix;
-		public function insert_plat( $nom_plat , $disponibilite , $prix ){
-			$data = array(
-				'id_plat' => ('NULL'),
-				'nom_plat' => ($nom_plat),
-                'disponibilite' => ($disponibilite),
-                'prix' => ("prix")
-			);
-            try{
-				$this->db->insert("plat", $data);
-			}catch( Exception $exception ){
-				throw $exception;
-			}
-		}
-
-		public function get_all_plat(){
-			$query = $this->db->get('plat');
-            echo $this->db->last_query($query);
-			$results = array();
-			$result_array = $query->result_array();
-			foreach( $result_array as $row ){
-				$plat = new Plat();
-				$plat->id_plat = $row["id_plat"];
-				$plat->nom_plat = $row["nom_plat"];
-				$plat->disponibilite = $row["disponibilite"];
-				$plat->nom_plat = $row["nom_plat"];
-				$results[] = $plat;
-			}
-			return $results;
-		}
-
         
-		public function get_all_plat_dispo(){
-            $query = $this->db->get_where('plat', array('diponibilite' => 1));
-            echo $this->db->last_query($query);
+		public function get_all_year(){
+			$query = "SELECT DISTINCT YEAR(date_achat) as ye FROM regime_Achete ORDER BY ye ASC ";
+			// echo $query;
+            $query = $this->db->query($query);
 			$results = array();
 			$result_array = $query->result_array();
 			foreach( $result_array as $row ){
-				$plat = new Plat();
-				$plat->id_plat = $row["id_plat"];
-				$plat->nom_plat = $row["nom_plat"];
-				$plat->disponibilite = $row["disponibilite"];
-				$plat->nom_plat = $row["nom_plat"];
-				$results[] = $plat;
+				$results[] = $row['ye'];
+			}
+			return $results;
+
+		}
+		public function get_all_sold_through_the_year(){
+            $query = "SELECT COUNT(id_regime) as nbr FROM
+			regime_achete
+			GROUP BY YEAR(date_achat)
+			ORDER BY YEAR(date_achat) ASC";
+			// echo $query;
+            $query = $this->db->query($query);
+			$results = array();
+			$result_array = $query->result_array();
+			foreach( $result_array as $row ){
+				$results[] = $row['nbr'];
 			}
 			return $results;
 		}
 
-        public function delete_plat( $id ){
-            $this->db->delete('plat', array('id_plat' => $id));
-		}
-	
 	}
 
 ?>

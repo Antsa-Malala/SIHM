@@ -27,6 +27,16 @@
             else 
                 return "Gagner";
         }
+
+        public function get_by_id_user($id){
+            $query = $this->db->get_where("objectif" , array("id_utilisateur" => $id , "date_fin" => null));
+            // echo $this->db->last_query();
+            $result = null;
+            foreach( $query->result_array() as $row){
+                $result  = $row;
+            }
+            return $result;
+        }
         
         public function getIMC($id)
         {

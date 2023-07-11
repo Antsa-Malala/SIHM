@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href=<?php echo base_url("assets/img/apple-icon.png");?>>
   <link rel="icon" type="image/png" href=<?php echo base_url("assets/img/favicon.png");?>>
   <title>
-    Material Kit 2 by Creative Tim
+    E-kaly
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -61,34 +61,20 @@
                       <div class="dropdown">
                         <select name="genre" class="btn dropdown-toggle"  type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                          Genre
-                          <option class="dropdown-item" value="">Homme</option>
-                          <option class="dropdown-item"value="">Femme</option>
+                          <option class="dropdown-item" value="1">Homme</option>
+                          <option class="dropdown-item"value="0">Femme</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="input-group input-group-static mb-4">
-                        <label>Taille</label>
-                        <input class="form-control" type="number" name="taille" >
-                      </div>
-                    </div>
-                    <div class="col-md-6 ps-2">
-                      <div class="input-group input-group-static mb-4">
-                        <label>Poids</label>
-                        <input class="form-control" type="number" name="poids">
-                      </div>
-                    </div>
-                  </div>
                   <div class="mb-4">
-                    <div class="input-group input-group-dynamic">
+                    <div class="input-group input-group-static">
                       <label class="form-label">Email</label>
                       <input type="email" class="form-control" name="mail">
                     </div>
                   </div>
                   <div class="mb-4">
-                    <div class="input-group input-group-dynamic">
+                    <div class="input-group input-group-static">
                       <label class="form-label">Mot de passe</label>
                       <input type="password" class="form-control" name="mdp">
                     </div>

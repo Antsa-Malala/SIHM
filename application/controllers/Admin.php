@@ -6,6 +6,8 @@ class Admin extends CI_Controller {
 	public function __construct(){
         parent::__construct();
 		$this->load->model("utilisateur/Utilisateurmodel" , "utilisateur");
+		$this->load->model("statistique/Regime_vendu" , "vendu");
+		$this->load->model('admin/Admin_model' , 'Adminmodel');
 		$this->load->model("regime/Regimemodel" , "regime");
 	}
 	public function login()
@@ -16,7 +18,6 @@ class Admin extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model('admin/Admin_model' , 'Adminmodel');
         $verification=$this->Adminmodel->login_admin($mail,$mdp);
 
 		if($verification==null)
@@ -36,6 +37,8 @@ class Admin extends CI_Controller {
 		$data['body'] = "admin/tableau_de_bord";
 		$data['nbruser'] = count($this->utilisateur->get_all_utilisateur());
 		$data['regimevendu'] = $lst;
+		$data['year'] = $this->vendu->get_all_year();
+		$data['sold'] = $this->vendu->get_all_sold_through_the_year();
 		$nbr = 0;
 		foreach( $lst as $elt){
 			$nbr += $elt['nombre'];

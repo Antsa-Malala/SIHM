@@ -8,7 +8,7 @@
           <div class="card z-index-0 fadeIn3 fadeInBottom">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-secondary shadow-secondary border-radius-lg py-3 pe-1">
-                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Modifier votre objectif</h4>
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Choisissez votre objectif</h4>
               </div>
             </div>
             <div class="card-body">
@@ -36,7 +36,7 @@
                       <option value="6">6</option>
                       <option value="7">7</option>
                       <option value="8">8</option>
-                      <option value="9"selected>9</option>
+                      <option value="9">9</option>
                       <option value="10">10</option>
                       <option value="11">11</option>
                       <option value="12">12</option>
@@ -48,7 +48,7 @@
                 </div>             
                 <div class="row">
                   <div class="col-md-12">
-                    <button type="submit" class="btn bg-gradient-dark w-100">Modifier</button>
+                    <button type="submit" class="btn bg-gradient-dark w-100">Valider</button>
                   </div>
                 </div>
               </form>

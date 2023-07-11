@@ -51,6 +51,7 @@
 
         public function get_utilisateur_poids($id){
             $query = $this->db->get_where("poids" , array("id_utilisateur" => $id , "date_fin" => null));
+            // echo $this->db->last_query();
 			$result = null;
 			$result_array = $query->result_array();
             foreach( $result_array as $row){

@@ -2,7 +2,7 @@
   <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
     <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
         <div class="container">
-          <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+          <a class="navbar-brand  text-white " href=<?php echo site_url("Admin/home");?> rel="tooltip" data-placement="bottom">
            E-Kaly
           </a>
           <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
