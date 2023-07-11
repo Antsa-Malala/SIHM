@@ -67,28 +67,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="input-group input-group-static mb-4">
-                        <label>Taille</label>
-                        <input class="form-control" type="number" name="taille" >
-                      </div>
-                    </div>
-                    <div class="col-md-6 ps-2">
-                      <div class="input-group input-group-static mb-4">
-                        <label>Poids</label>
-                        <input class="form-control" type="number" name="poids">
-                      </div>
-                    </div>
-                  </div>
                   <div class="mb-4">
-                    <div class="input-group input-group-dynamic">
+                    <div class="input-group input-group-static">
                       <label class="form-label">Email</label>
                       <input type="email" class="form-control" name="mail">
                     </div>
                   </div>
                   <div class="mb-4">
-                    <div class="input-group input-group-dynamic">
+                    <div class="input-group input-group-static">
                       <label class="form-label">Mot de passe</label>
                       <input type="password" class="form-control" name="mdp">
                     </div>
