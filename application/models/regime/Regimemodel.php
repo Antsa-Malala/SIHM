@@ -78,7 +78,7 @@ class Regimemodel extends CI_Controller {
     {
 		// echo $poids;
         $tableau = array(1,2,4,8);
-        $membres_volou=$tableau[0];
+        /*$membres_volou=$tableau[0];
         $result=array();
         array_push($result,$membres_volou);
         for($i=0;$i<count($tableau);$i++)
@@ -93,7 +93,33 @@ class Regimemodel extends CI_Controller {
             }
             $membres_volou=$membres_volou+$tableau[$i];
             array_push($result,$tableau[$i]);
-        }
+        }*/
+
+		$result=array();
+		$premier=0;
+		if($tableau[0]==$poids)
+		{
+			$result=array($tableau[0]);
+			return $result;
+		}
+		for($i=0;$i<count($tableau);$i++)
+		{
+			array_push($result,$tableau[$i]);
+			$premier=$premier+$tableau[$i];
+			for($a=$i+1;$a<count($tableau);$a++)
+			{
+				if($premier+$tableau[$a]==$poids)
+				{
+					array_push($result,$tableau[$a]);
+					return $result;
+				}
+				else if($tableau[$a]==$poids)
+				{
+					$result=array($tableau[$a]);
+					return $result;
+				}
+			}
+		}
     }
 	public function get_one_regime_by_poids($poids){
 		$query = $this->db->get_where("regime" , array( "poids" => $poids));
@@ -107,28 +133,33 @@ class Regimemodel extends CI_Controller {
 
 	public function get_regime_ok($poids , $objectif){
 		$lst = $this->get_combinaison($poids);
+		// var_dump($lst);
 		$result = array();
 		$tab = array();
 		foreach($lst as $elt){
 			$tab = $this->get_all_regime_by_poids($elt , $tab);
 		}
 		$int = "";
-		if($objectif == 0)
-			$int = "Perdre";
-		else
-			$int = "Gagner";
+		if($objectif == 0){
 
-		
-		foreach($tab as $elt){
-			if($elt['azo_perdu'] == $objectif)
+			$int = "Perdre";
+		}else{
+			$int = "Gagner";
+		}
+		echo $objectif;
+		foreach($tab as $temp){
+			// var_dump($temp);
+			if($temp['azo_perdu'] == $objectif){
 				$result[] = array(
-					"id_regime" => $elt['id_regime'],
-					"poids" => $elt['poids'],
-					"prix" => $this->get_prix_total_one_regime($elt['id_regime']),
-					"poids" => $elt['poids'],
+					"id_regime" => $temp['id_regime'],
+					"poids" => $temp['poids'],
+					"prix" => $this->get_prix_total_one_regime($temp['id_regime']),
+					"poids" => $temp['poids'],
 					"objectif" => $int
 				);
+			}
 		} 
+
 		return $result;
 	}
 

@@ -50,10 +50,9 @@
                 <div class="card-body">
                     <div class="row">
                       <div class="mb-4">
-                          <div class="input-group input-group-outline my-3">
-                              <label class="form-label">Email</label>
+                          <div class="input-group input-group-static my-3">
+                              <label>Email</label>
                               <input type="mail" class="form-control" name="mail" value="admin1@example.com">
-
                           </div>
                       </div>
                       <div class="mb-4">
