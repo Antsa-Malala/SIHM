@@ -75,11 +75,13 @@ class Utilisateur extends CI_Controller {
 	{
 		$nom=$this->input->post('nom');
 		$prenom=$this->input->post('prenom');
+		$poids=$this->input->post('poids');
+		$taille=$this->input->post('taille');
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
 		$id=$_SESSION['id_utilisateur'];
-		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$id);
-		redirect(site_url('Utilisateur/home'));
+		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$mail,$mdp,$taille,$poids,$id);
+		redirect(base_url('Utilisateur/profil'));
 	}
 
 	public function profil()
