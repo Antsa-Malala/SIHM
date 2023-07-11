@@ -27,6 +27,16 @@
             else 
                 return "Gagner";
         }
+        
+        public function getIMC($id)
+        {
+            $this->load->model('utilisateur/Utilisateurmodel');
+            $poids=$this->Utilisateurmodel->get_utilisateur_poids($id);
+            $taille=$this->Utilisateurmodel->get_utilisateur_taille($id);
+
+            $imc=$poids/($taille*$taille);
+            return $imc;
+        }
     }
     
 ?>
