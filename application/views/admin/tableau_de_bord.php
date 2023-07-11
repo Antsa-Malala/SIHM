@@ -51,18 +51,18 @@
                 <p class="mb-0">Régime <?php echo $elt['id_regime'];?> <br> <?php echo $elt['nombre'];?> vendus</p>
               </div>
             </div>
-          <?php } ?>
-    </div>
-  <div>
-    <h2
+            <?php } ?>
+          </div>
+          <div>
+            <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
       Statistiques des menus vendus
     </h2>
     <div class="card">
-        <div class="card-body">
-          <canvas id="chart" width="1000" height="500"></canvas>
-        </div>
+      <div class="card-body">
+        <canvas id="chart" width="1000" height="500"></canvas>
+      </div>
     </div>
   </div>
 </section>
@@ -96,8 +96,8 @@
   }
 </script>
 <script>
-    var year = [2020,2021,2022,2023];
-    var sold = [9,5,4,12];
+    var year = <?php echo json_encode($year);?>;
+    var sold = <?php echo json_encode($sold);?>;
     var ctx = document.getElementById("chart").getContext('2d');
     ctx.height = 500;
   
