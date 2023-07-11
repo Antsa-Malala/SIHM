@@ -20,7 +20,7 @@ class Caisse extends CI_Controller {
 	 */
     public function rechargement()
     {
-        $this->load->view('code/pagerechargement',$data);
+        redirect(base_url('Caisse/insert_code'));
     }
 
     public function rechargement_code()
@@ -33,7 +33,7 @@ class Caisse extends CI_Controller {
             redirect(base_url('Caisse/rechargement'));
         }
         $this->Codemodel->update_to_attente_code($code);
-        redirect(base_url('Utilisateur/profil'));
+        redirect(base_url('Utilisateur/home'));
     }
 
     public function liste_code_attente()

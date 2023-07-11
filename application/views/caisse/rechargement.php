@@ -158,10 +158,10 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start">
+              <form role="form" class="text-start" action=<?php echo base_url("Caisse/rechargement_code"); ?> >
                 <div class="input-group input-group-static mb-4">
                     <label>Code</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="code">
                 </div>     
                 <div class="row">
                   <div class="col-md-12">

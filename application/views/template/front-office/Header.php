@@ -84,9 +84,6 @@
                Caisse
                 </h6>
                 <a href=<?php echo site_url("Caisse/insert_code");?> class="dropdown-item border-radius-md">
-                  <span>Etat de caisse</span>
-                </a>
-                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Recharger ma caisse</span>
                 </a>
               </div>
