@@ -38,10 +38,11 @@ class Utilisateur extends CI_Controller {
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
 
 		if($verification==null){
-			redirect(site_url('Utilisateur/login'));
+			redirect("Utilisateur/login");
 		}
 		else{
-			redirect(base_url('Utilisateur/home'));
+			$_SESSION['id_utilisateur'] = $verification['id_utilisateur'];
+			redirect(	site_url("Utilisateur/home"));
 		}
 	}
 
@@ -49,13 +50,13 @@ class Utilisateur extends CI_Controller {
 	{
 		$id = $_SESSION['id_utilisateur'];
 		$data['title'] = "Profil";
+		$data['body'] = 'utilisateur/home';
 		$data['user'] = $this->Utilisateurmodel->get_one_utilisateur($id);
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
 		$data['objectif'] = $this->get_objectif();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
-		$data['body'] = 'utilisateur/home';
 		$this->load->view('template/index' , $data);
 	}
 

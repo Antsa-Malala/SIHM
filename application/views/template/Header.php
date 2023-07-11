@@ -65,7 +65,7 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                 Régimes
                 </h6>
-                <a href=<?php echo site("#");?> class="dropdown-item border-radius-md">
+                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Voir les propositions de menus</span>
                 </a>
               </div>
