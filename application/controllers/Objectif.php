@@ -18,10 +18,16 @@ class Objectif extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
     public function insert_objectif()
     {
-		$this->load->view('objectif/modifier_objectif');
+		$data['title'] = "Objectif";
+		$data['body'] = 'objectif/modifier_objectif';
+		$this->load->view('template/index' , $data);
     }
+	public function update_objectif()
+	{
+	}
 
     public function insert_objectif_trait()
     {
