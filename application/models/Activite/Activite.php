@@ -4,74 +4,36 @@
 		public $id_activite;
 		public $description_activite;       
 
-		public function insert_sale_fish( $id_pond, $quantity_saled, $saling_date ){
-			if( $quantity_saled <= 0 ) throw new Exception("Quantity value cannot be null or negative, please retry");
-			if( $saling_date <= 0 ) throw new Exception("Choosen date is invalid, please retry");
- 
-			$id = create_primary_key(Sale_Fish::$PREFIX , Sale_Fish::$SEQUENCE, Sale_Fish::$LENGTH);
+		public function insert_activite( $description ){
 			$data = array(
-				'id_sale_fish' => ($id),
-				'id_fish_pond' => $this->get_last_id_fish_pond($id_pond),
-				'quantity_sold' => ($quantity_saled),
-				'sale_date' => ($this->format_date($saling_date))
+				'id_activite' => ('NULL'),
+				'description_activite' => ($description)
 			);
-
-			try{
-				$this->db->insert(Sale_Fish::$table, $data);
+            try{
+				$this->db->insert("activite", $data);
 			}catch( Exception $exception ){
 				throw $exception;
 			}
 		}
 
-		/**
-		 * 
-		 * @author     Layah
-		 * 
-		 * Get All Saled Fish
-		 * 
-		 * args : none
-		 * 
-		 * use : Get all fish who were already sold
-		 * 
-		 * 
-		 */
-
-		public function get_all_saled_fish(){
-			$query = $this->db->get('sale_fish');
+		public function get_all_activite(){
+			$query = $this->db->get('activite');
             echo $this->db->last_query($query);
 			$results = array();
 			$result_array = $query->result_array();
 			foreach( $result_array as $row ){
-				$saleFish = new Sale_Fish();
-				$saleFish->id_sale_fish = $row["id_sale_fish"];
-				$saleFish->id_fish_pond = $row["id_fish_pond"];
-				$saleFish->quantity_sold = $row["quantity_sold"];
-				$saleFish->sale_date = $row["sale_date"];
+				$saleFish = new Activite();
+				$saleFish->id_activite = $row["id_activite"];
+				$saleFish->description_activite = $row["description_activite"];
 				$results[] = $saleFish;
 			}
 			return $results;
 		}
 
-		
-		public function get_last_id_fish_pond($id_pond)
-		{
-			$query = " select f_get_recent_fish_pond( '%s' )";
-			$query = sprintf($query , $id_pond);
-			echo $query;
-			$query = $this->db->query($query);
-			$row = $query->result_array();
-			return $row[0]["f_get_recent_fish_pond"];
+        public function delete_activite( $id ){
+            $this->db->delete('activite', array('id_activite' => $id));
 		}
-
-
-		public function check_sale_quantity($id_fish_pond, $quantity_to_sell)
-		{
-			$query = " SELECT CASE WHEN ".$quantity_to_sell." > quantity THEN 'false' ELSE 'true' END AS result FROM fish_pond WHERE id_fish_pond = ".$id_fish_pond;
-			$query = $this->db->query($query);
-			$row = $query->row();
-			return $row->result;
-		}
-
+	
 	}
 
 ?>
