@@ -3,7 +3,6 @@
     
     class Caisse_model extends CI_Model{
 
-
     }
     
 ?>
