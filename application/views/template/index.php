@@ -45,6 +45,6 @@
     <script src=<?php echo("js/todolist.js");?>></script>
     <script src=<?php echo("vendors/progressbar.js/progressbar.min.js");?>></script>
     <script src=<?php echo("vendors/chart.js/Chart.min.js");?>></script>
-    <script src=<?php echo("js/dashboard.js");?>></script>
+    <script src=<?php echo("js/dashboard.js");?>></script>	
 </body>
 </html>

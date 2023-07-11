@@ -45,33 +45,27 @@
         <div class="container py-4">
           <div class="row" >
             <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column" id="log_in">
-              <h3 class="text-center">Sign in</h3>
-              <form role="form" id="contact-form" method="post"  action=<?php echo site_url("Utilisateur/verif_login");?>>
+              <h3 class="text-center">Sign in as Admin</h3>
+              <form role="form" id="contact-form" method="post"  action=<?php echo site_url("Admin/verif_login");?>>
                 <div class="card-body">
                     <div class="row">
                       <div class="mb-4">
                           <div class="input-group input-group-outline my-3">
                               <label class="form-label">Email</label>
-                              <input type="mail" class="form-control" name="mail" value="john.doe@example.com">
+                              <input type="mail" class="form-control" name="mail" value="johnDoe@example.com">
                           </div>
                       </div>
                       <div class="mb-4">
                           <div class="input-group input-group-outline my-3">
                             <label class="form-label">Mot de passe</label>
-                          <input type="password" class="form-control" name="mdp" value="password123">
+                            <input type="password" class="form-control" name="mdp" value="password123">
                           </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <button type="submit" class="btn bg-gradient-dark w-100">Sign in</button>
-                      </div>
-                      <div id="log_admin">
-                          <a href=<?php echo site_url("Admin/login");?>>Log as <span id="admin">administrator</span></a>
-                      </div>
-                      <div id="log_admin">
-                          <a href=<?php echo site_url("Utilisateur/inscription");?>><span id="sign">Sign up</span></a>
-                      </div>
+                    </div>
                     </div>
                   </div>
               </form>

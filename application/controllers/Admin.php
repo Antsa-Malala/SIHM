@@ -21,13 +21,13 @@ class Admin extends CI_Controller {
 	 
 	public function login()
 	{
-		$this->load->view('admin/loginadmin');	
+		$this->load->view('admin/Login_admin');	
 	}
 	public function verif_login()
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model('admin/Adminmodel' , 'Adminmodel');
+		$this->load->model('admin/Admin_model' , 'Adminmodel');
         $verification=$this->Adminmodel->login_admin($mail,$mdp);
 
 		if($verification==null)
@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 		}
 		else
 		{
-			redirect(base_url('Admin/home'));
+			redirect(base_url('admin/home'));
 		}
 	}
 
