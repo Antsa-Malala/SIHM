@@ -6,7 +6,7 @@ SELECT  rg.id_regime , rg.poids , rg.azo_perdu , pl.nom_plat , pl.disponibilite 
     ON rpl.id_plat = pl.id_plat
     JOIN activite act
     ON rpl.id_activite = act.id_activite
-    ORDER BY rg.id_regime ASC; 
+    ORDER BY rg.id_regime ASC;
 
 --PRIX REGIME ET POIDS PERDU
 SELECT DISTINCT v.id_regime , SUM(PRIX) as sum , poids , azo_perdu FROM 
