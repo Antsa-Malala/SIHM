@@ -53,7 +53,7 @@
           <ul class="navbar-nav navbar-nav-hover ms-auto">
             <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
               <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="material-icons opacity-6 me-2 text-md"></i>
+                <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
                 Profil
                 <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
                 <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -85,7 +85,7 @@
             </li>
             <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
               <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="material-icons opacity-6 me-2 text-md"></i>
+                <i class="material-icons opacity-6 me-2 text-md">view_day</i>
                Régime
                 <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
                 <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -111,7 +111,7 @@
             </li>
             <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
               <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="material-icons opacity-6 me-2 text-md"></i>
+                <i class="material-icons opacity-6 me-2 text-md">article</i>
                Caisse
                 <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
                 <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
@@ -154,50 +154,29 @@
           <div class="card z-index-0 fadeIn3 fadeInBottom">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-secondary shadow-secondary border-radius-lg py-3 pe-1">
-                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Choisissez votre objectif</h4>
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Recharger votre caisse</h4>
               </div>
             </div>
             <div class="card-body">
               <form role="form" class="text-start">
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="customRadio1">
-                  <label class="custom-control-label" for="customRadio1">Perdre du poids</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="customRadio2">
-                  <label class="custom-control-label" for="customRadio2">Augmenter mon poids</label>
-                </div> 
-                <div class="form-check">
-                  <br>
-                  <div>
-                    <label >Poids à perdre/augmenter</label>
-                  </div>
-                  <div class="dropdown">
-                    <select class="form-control" name="valeur">
-                      <option value="Choice 1">1</option>
-                      <option value="Choice 2">2</option>
-                      <option value="Choice 3">3</option>
-                      <option value="Choice 4">4</option>
-                      <option value="Choice 4">5</option>
-                      <option value="Choice 4">6</option>
-                      <option value="Choice 4">7</option>
-                      <option value="Choice 4">8</option>
-                      <option value="Choice 4">9</option>
-                      <option value="Choice 4">10</option>
-                      <option value="Choice 4">11</option>
-                      <option value="Choice 4">12</option>
-                      <option value="Choice 4">13</option>
-                      <option value="Choice 4">14</option>
-                      <option value="Choice 4">15</option>
-                    </select>                        
-                  </div>
-                </div>             
+                <div class="input-group input-group-static mb-4">
+                    <label>Code</label>
+                    <input type="text" class="form-control">
+                </div>     
                 <div class="row">
                   <div class="col-md-12">
-                    <button type="submit" class="btn bg-gradient-dark w-100">Valider</button>
+                    <button type="submit" class="btn bg-gradient-dark w-100">Recharger</button>
                   </div>
                 </div>
               </form>
+              <label>Tous les codes</label>
+              <ul class="list-group">
+                <li class="list-group-item">3526482</li>
+                <li class="list-group-item">7526482</li>
+                <li class="list-group-item">9526482</li>
+                <li class="list-group-item">1226482</li>
+                <li class="list-group-item">3526797</li>
+              </ul>              
             </div>
           </div>
         </div>
