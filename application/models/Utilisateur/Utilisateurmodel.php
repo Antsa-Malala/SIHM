@@ -15,7 +15,7 @@
             $sql="select * from utilisateur where mail LIKE %s and mdp LIKE %s";
             $sql=sprintf($sql,$this->db->escape($mail),$this->db->escape($mdp));
             $query=$this->db->query($sql);
-            echo $sql;
+            // echo $sql;
             $result = null;
 
             foreach($query->result_array() as $row)
@@ -30,6 +30,7 @@
         {
             $sql="select * from utilisateur where id_utilisateur=%s";
             $sql=sprintf($sql,$this->db->escape($id));
+            // echo $sql;
             $query=$this->db->query($sql);
 
             $result = null;
@@ -39,6 +40,31 @@
                 $result=$row;
             }
 
+            return $result;
+        }
+
+        public function get_genre($int){
+            if($int == 1 )
+                return "Homme";
+            return "Femme";
+        }
+
+        public function get_utilisateur_poids($id){
+            $query = $this->db->get_where("poids" , array("id_utilisateur" => $id));
+			$result = null;
+			$result_array = $query->result_array();
+            foreach( $result_array as $row){
+                $result = $row;
+            }
+            return $result;
+        }
+        public function get_utilisateur_taille($id){
+            $query = $this->db->get_where("taille" , array("id_utilisateur" => $id));
+			$result = null;
+			$result_array = $query->result_array();
+            foreach( $result_array as $row){
+                $result = $row;
+            }
             return $result;
         }
 
@@ -63,7 +89,8 @@
         public function get_objectif_now_utilisateur($id)
         {
             $sql="select * from objectif where id_utilisateur=%s and date_fin=null";
-            $sql=sprintf($sql,$this->db->ecape($id));
+            $sql=sprintf($sql,$this->db->escape($id));
+            // echo $sql;
             $query=$this->db->query($sql);
 
             $result=null;

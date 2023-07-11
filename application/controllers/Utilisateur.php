@@ -18,6 +18,13 @@ class Utilisateur extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct(){
+        parent::__construct();
+		session_start();
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
+		$this->load->model("objectif/Objectifmodel" , 'Objectifmodel');
+
+	}
 	public function inscription()
 	{
 		$this->load->view('utilisateur/inscription');
@@ -30,7 +37,6 @@ class Utilisateur extends CI_Controller {
 		$genre=$this->input->post('genre');
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$this->Utilisateurmodel->insert_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp);
 
 		redirect(base_url('Utilisateur/login'));
@@ -44,17 +50,22 @@ class Utilisateur extends CI_Controller {
 	{
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
-		echo $mdp;
-		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
 
 		if($verification==null){
 			redirect(base_url('Utilisateur/login'));
 		}
 		else{
-			session_start();
             $_SESSION['id_utilisateur']=$verification['id_utilisateur'];
-			redirect(base_url('Utilisateur/home'));
+			$data['title'] = "Profil";
+			$data['user'] = $this->Utilisateurmodel->get_one_utilisateur($_SESSION['id_utilisateur']);
+			$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($_SESSION['id_utilisateur']);
+			$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($_SESSION['id_utilisateur']);
+			$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
+			$data['objectif'] = $this->get_objectif();
+			$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
+			$data['body'] = 'utilisateur/home';
+			$this->load->view('template/index' , $data);
 		}
 	}
 
@@ -65,11 +76,13 @@ class Utilisateur extends CI_Controller {
 
 	public function modifier()
 	{
-		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
+		$data['title'] = "Update Profil";
+		$data['body'] = 'utilisateur/modifier_profil';
 		$data['detail']=$this->Utilisateurmodel->get_one_utilisateur($id);
-		$this->load->view('utilisateur/modification',$data);
+		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
+		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
+		$this->load->view('template/index',$data);
 	}
 
 	public function modifier_trait()
@@ -82,7 +95,6 @@ class Utilisateur extends CI_Controller {
 		$mdp=$this->input->post('mdp');
 		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 		$this->Utilisateurmodel->modification_trait_utilisateur($nom,$prenom,$date_naissance,$genre,$mail,$mdp,$id);
 		redirect(base_url('Utilisateur/profil'));
 	}
@@ -103,10 +115,8 @@ class Utilisateur extends CI_Controller {
 
 	public function get_objectif()
 	{
-		session_start();
 		$id=$_SESSION['id_utilisateur'];
-		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
-		$data['objectif_now']=$this->Utilisateurmodel->get_objectif_now_utilisateur($id);
-		$this->load->view('utilisateur/objectif');
+		$data = $this->Utilisateurmodel->get_objectif_now_utilisateur($id);
+		return $data;
 	}
 }

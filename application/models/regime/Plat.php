@@ -35,10 +35,6 @@
 			return $results;
 		}
 
-        public function delete_activite( $id ){
-            $this->db->delete('activite', array('id_activite' => $id));
-		}
-
         
 		public function get_all_plat_dispo(){
             $query = $this->db->get_where('plat', array('diponibilite' => 1));
