@@ -23,6 +23,7 @@ class Objectif extends CI_Controller {
 		parent::__construct();
 		session_start();
 		$this->load->model("objectif/Objectifmodel" , "objectif");
+		$this->load->model('utilisateur/Utilisateurmodel','Utilisateurmodel');
 	}
 
 	public function insert_objectif()
@@ -34,8 +35,11 @@ class Objectif extends CI_Controller {
 
 	public function modifier_objectif()
 	{
+		$id=$_SESSION['id_utilisateur'];
+		$value=$this->Utilisateurmodel->get_objectif_now_utilisateur($id);
 		$data['title'] = "Modifier Objectif";
 		$data['body'] = "objectif/modifier_objectif";
+		$data['value']=$value;
 		$this->load->view('template/front-office/index' , $data);
 	}
 

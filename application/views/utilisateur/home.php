@@ -42,11 +42,11 @@
                     <h3 class="mb-0"></h3>
                     <div>
                       <p>Votre caisse :</p>
-                      <h1 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $etat; ?></span>Ar</h1>
+                      <h1 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $etat; ?></span> Ar</h1>
                       <p>All depense :</p>
-                      <h3 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $depense; ?></span>Ar</h3>
+                      <h3 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $depense; ?></span> Ar</h3>
                       <p>All rechargement :</p>
-                      <h3 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $recharge; ?></span>Ar</h3>
+                      <h3 class="text-gradient text-primary"><span id="state1" countTo="70"><?php echo $recharge; ?></span> Ar</h3>
                     </div>
                   </div>
                 

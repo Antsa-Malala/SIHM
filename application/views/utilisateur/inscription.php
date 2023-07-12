@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href=<?php echo base_url("assets/img/apple-icon.png");?>>
   <link rel="icon" type="image/png" href=<?php echo base_url("assets/img/favicon.png");?>>
   <title>
-    Material Kit 2 by Creative Tim
+    E-kaly
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -61,8 +61,8 @@
                       <div class="dropdown">
                         <select name="genre" class="btn dropdown-toggle"  type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                          Genre
-                          <option class="dropdown-item" value="">Homme</option>
-                          <option class="dropdown-item"value="">Femme</option>
+                          <option class="dropdown-item" value="1">Homme</option>
+                          <option class="dropdown-item"value="0">Femme</option>
                         </select>
                       </div>
                     </div>

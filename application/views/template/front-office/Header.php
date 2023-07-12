@@ -1,7 +1,7 @@
 <!-- Navbar Transparent -->
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
-      <a class="navbar-brand  text-white " href=<?php echo site_url("Utilisateur/home");?> rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+      <a class="navbar-brand  text-white " rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
        E-Kaly
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
           <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md"></i>
-              Profil
+              Profil  
               <img src=<?php echo base_url("assets/img/down-arrow-white.svg");?> alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
               <img src=<?php echo base_url("assets/img/down-arrow-dark.svg");?> alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
             </a>
@@ -84,9 +84,6 @@
                Caisse
                 </h6>
                 <a href=<?php echo site_url("Caisse/insert_code");?> class="dropdown-item border-radius-md">
-                  <span>Etat de caisse</span>
-                </a>
-                <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
                   <span>Recharger ma caisse</span>
                 </a>
               </div>

@@ -150,34 +150,51 @@
     <span class="mask bg-gradient-dark opacity-6"></span>
     <div class="container my-auto">
       <div class="row">
-        <div class="col-lg-4 col-md-8 col-12 mx-auto">
-          <div class="card z-index-0 fadeIn3 fadeInBottom">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-secondary shadow-secondary border-radius-lg py-3 pe-1">
-                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Recharger votre caisse</h4>
-              </div>
-            </div>
-            <div class="card-body">
-              <form role="form" class="text-start" method="post" action=<?php echo base_url("Caisse/rechargement_code"); ?> >
-                <div class="input-group input-group-static mb-4">
-                    <label>Code</label>
-                    <input type="text" class="form-control" name="code">
-                </div>     
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="submit" class="btn bg-gradient-dark w-100">Recharger</button>
-                  </div>
-                </div>
-              </form>
-              <label>Tous les codes</label>
-              <ul class="list-group">
-              <?php for($i=0;$i<count($code);$i++) { ?>
-                <li class="list-group-item"><?php echo $code[$i]['code']; ?> avec <?php echo $code[$i]['somme']; ?>Ar</li>
-              <?php } ?>
-              </ul>              
-            </div>
-          </div>
-        </div>
+        <div class="card" style="width: 700px;margin-left: auto;margin-right: auto;">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Membre</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Montant</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Numero</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php for($i=0;$i<count($all_code);$i++) { ?>
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2">
+                        <div>
+                          <img src="../assets/img/user.png" class="avatar avatar-sm rounded-circle me-2">
+                        </div>
+                        <div class="my-auto">
+                          <h6 class="mb-0 text-xs"><?php echo $all_code[$i]['nom']; ?></h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="align-middle text-center">
+                      <div class="d-flex align-items-center">
+                        <span class="me-2 text-xs"><?php echo $all_code[$i]['somme']; ?></span>
+                      </div>
+                    </td>
+                    <td class="align-middle text-center">
+                      <div class="d-flex align-items-center">
+                        <span class="me-2 text-xs"><?php echo $all_code[$i]['code']; ?></span>
+                      </div>
+                    </td>
+                    <td>
+                        <a href=<?php echo base_url("Caisse/validation_code_trait?id_code=".$all_code[$i]['id_code']) ; ?>><button type="button" class="btn bg-gradient-success">Valider</button></a>
+                    </td>
+                    <td >
+                        <button type="button" class="btn btn-outline-danger">Supprimer</button>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>       
       </div>
     </div>
   </div>
