@@ -61,7 +61,9 @@ class Caisse extends CI_Controller {
     {
         $this->load->model('code/Codemodel','Codemodel');
         $data['code']=$this->Codemodel->get_all_code();
-        $this->load->view('caisse/rechargement',$data);
+        $data['title'] = "Rechargement caisse";
+        $data['body'] = "caisse/rechargement";
+        $this->load->view('template/front-office/index',$data);
     }
 
     public function insert_code_trait()

@@ -91,10 +91,7 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                   Caisse
                    </h6>
-                   <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
-                     <span>Etat de caisse</span>
-                   </a>
-                   <a href=<?php echo site_url("#");?> class="dropdown-item border-radius-md">
+                   <a href=<?php echo site_url("Caisse/rechargement");?> class="dropdown-item border-radius-md">
                      <span>Recharger ma caisse</span>
                    </a>
               </div>
