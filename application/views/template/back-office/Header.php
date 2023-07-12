@@ -26,7 +26,7 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                      Mon profil
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Voir mon profil</span>
                     </a>
                     <a href=<?php echo base_url("pages/contact-us.html");?> class="dropdown-item border-radius-md">
@@ -37,7 +37,7 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                       Mon profil
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Voir mon profil</span>
                     </a>
                     <a href=<?php echo base_url("pages/contact-us.html");?> class="dropdown-item border-radius-md">
@@ -58,7 +58,7 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                     Régimes
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Voir les propositions de menus</span>
                     </a>
                   </div>
@@ -66,7 +66,7 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                     Régimes
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Voir les propositions de menus</span>
                     </a>
                   </div>
@@ -84,10 +84,10 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                    Caisse
                     </h6>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Etat de caisse</span>
                     </a>
-                    <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                    <a href=# class="dropdown-item border-radius-md">
                       <span>Recharger ma caisse</span>
                     </a>
                   </div>
@@ -95,17 +95,17 @@
                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                       Caisse
                        </h6>
-                       <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                       <a href=# class="dropdown-item border-radius-md">
                          <span>Etat de caisse</span>
                        </a>
-                       <a href=<?php echo base_url("pages/about-us.html");?> class="dropdown-item border-radius-md">
+                       <a href=# class="dropdown-item border-radius-md">
                          <span>Recharger ma caisse</span>
                        </a>
                   </div>
                 </div>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-                  <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                  <a  href=<?php echo site_url("Admin/logout");?> class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">
                     <span style="margin-right: 10px;">Log out</span>
                     <i class="fas fa-sign-out-alt"></i>
                 </a>

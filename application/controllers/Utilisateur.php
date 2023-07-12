@@ -52,7 +52,7 @@ class Utilisateur extends CI_Controller {
 		$mail=$this->input->post('mail');
 		$mdp=$this->input->post('mdp');
         $verification=$this->Utilisateurmodel->login_utilisateur($mail,$mdp);
-
+		
 		if($verification==null){
 			redirect("Utilisateur/login");
 		}
@@ -71,6 +71,7 @@ class Utilisateur extends CI_Controller {
 		$data['poids'] = $this->Utilisateurmodel->get_utilisateur_poids($id);
 		$data['taille'] = $this->Utilisateurmodel->get_utilisateur_taille($id);
 		$data['genre'] = $this->Utilisateurmodel->get_genre($data['user']['genre']);
+		$data['icm'] =  $this->Utilisateurmodel->get_icm($id);
 		$data['objectif'] = $this->get_objectif_now();
 		$data['action'] = $this->Objectifmodel->get_lose_or_gain($data['objectif']['objectif']);
 		$data['recharge']=$this->get_etat_recharge();
@@ -115,7 +116,7 @@ class Utilisateur extends CI_Controller {
 	public function logout()
 	{
 		session_destroy();
-		redirect(site_url('utilisateur/loginutilisateur'));
+		redirect(site_url('Utilisateur/login'));
 	}
 
 	public function get_objectif_now()

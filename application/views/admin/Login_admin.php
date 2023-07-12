@@ -52,7 +52,7 @@
                       <div class="mb-4">
                           <div class="input-group input-group-static my-3">
                               <label>Email</label>
-                              <input type="mail" class="form-control" name="mail" value="johnDoe@example.com">
+                              <input type="mail" class="form-control" name="mail" value="admin1@example.com">
                           </div>
                       </div>
                       <div class="mb-4">
@@ -65,8 +65,11 @@
                     <div class="row">
                       <div class="col-md-12">
                         <button type="submit" class="btn bg-gradient-dark w-100">Sign in</button>
+                      </div>
                     </div>
-                    </div>
+                    <div id="log_admin">
+                          <a href=<?php echo site_url("Utilisateur/login");?>>Log as <span id="admin">user</span></a>
+                      </div>
                   </div>
               </form>
             </div>

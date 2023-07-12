@@ -14,6 +14,11 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('admin/Login_admin');	
 	}
+	public function logout()
+	{
+		session_destroy();
+		redirect(site_url('Admin/login'));
+	}
 	public function verif_login()
 	{
 		$mail=$this->input->post('mail');

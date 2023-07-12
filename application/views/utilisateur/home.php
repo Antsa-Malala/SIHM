@@ -28,6 +28,15 @@
                     Genre : <?php echo $genre;?><br>
                     Taille : <?php echo $taille['taille'];?> cm<br>
                     Poids : <?php echo $poids['poids'];?> kg<br>
+                    ICM( Indice de Masse Corporelle) : <?php echo $icm;?><br>
+                    <?php 
+                    if($icm <= 25 && $icm >= 18.5){
+                      echo "==> Votre ICM est normal";
+                    }else{
+                      echo "==> Votre ICM est anormale";
+                    }
+                    
+                    ?>
                   </p>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h3 class="mb-0"></h3>

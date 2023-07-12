@@ -59,6 +59,11 @@
             }
             return $result;
         }
+        public function get_icm($id){
+            $poids = $this->get_utilisateur_poids($id);
+            $taille = $this->get_utilisateur_taille($id);
+            return ($poids['poids'] / (($taille['taille']/100) * ($taille['taille']/100))); 
+        }
         public function get_utilisateur_taille($id){
             $query = $this->db->get_where("taille" , array("id_utilisateur" => $id , "date_fin" => null));
 			$result = null;
