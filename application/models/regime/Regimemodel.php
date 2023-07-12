@@ -123,7 +123,6 @@ class Regimemodel extends CI_Controller {
     }
 	public function get_one_regime_by_poids($poids){
 		$query = $this->db->get_where("regime" , array( "poids" => $poids));
-		// echo $this->db->last_query();
 		$result = null;
 		foreach( $query->result_array() as $row){
 			$result = $row;
@@ -133,7 +132,6 @@ class Regimemodel extends CI_Controller {
 
 	public function get_regime_ok($poids , $objectif){
 		$lst = $this->get_combinaison($poids);
-		// var_dump($lst);
 		$result = array();
 		$tab = array();
 		foreach($lst as $elt){
@@ -148,13 +146,11 @@ class Regimemodel extends CI_Controller {
 		}
 		echo $objectif;
 		foreach($tab as $temp){
-			// var_dump($temp);
 			if($temp['azo_perdu'] == $objectif){
 				$result[] = array(
 					"id_regime" => $temp['id_regime'],
 					"poids" => $temp['poids'],
 					"prix" => $this->get_prix_total_one_regime($temp['id_regime']),
-					"poids" => $temp['poids'],
 					"objectif" => $int
 				);
 			}

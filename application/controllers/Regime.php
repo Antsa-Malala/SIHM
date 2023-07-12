@@ -23,7 +23,7 @@ class Regime extends CI_Controller {
     
     public function insert_trait()
     {
-        $poids=$this->input->post('poids');
+    $poids=$this->input->post('poids');
 		$azo_very=$this->input->post('azo_very');
         $this->Regimemodel->insert_regime($poids,$azo_very);
         
